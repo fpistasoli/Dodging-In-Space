@@ -826,10 +826,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1439290256}
     m_Modifications:
     - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
       propertyPath: followCamera
       value: 
       objectReference: {fileID: 1464402651}
