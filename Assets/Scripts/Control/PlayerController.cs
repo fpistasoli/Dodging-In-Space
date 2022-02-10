@@ -18,10 +18,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
-   
     void Update()
     {
         InteractWithMovement();
@@ -36,5 +35,31 @@ public class PlayerController : MonoBehaviour
         //update velocity vector (z-coordinate is constantly 'speed' units)
         translationVelocity = new Vector3(translationHorizontal, translationVertical, speed ) * Time.deltaTime;
         transform.Translate(translationVelocity);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            Debug.Log("Player choco con Enemy");
+            TakeDamage();
+            //TakeDamage(other.GetDamage()); //una vez que este programado este metodo en Enemy.cs
+        }
+    }
+
+    private void TakeDamage()
+    {
+        lives--;
+        //lives -= other.GetDamage();
+        if (lives == 0)
+        {
+            Die();
+            Debug.Log("GAME OVER");
+        }
+    }
+
+    private void Die()
+    {
+        //regresar al menu principal
     }
 }
