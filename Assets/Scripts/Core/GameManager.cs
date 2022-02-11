@@ -5,8 +5,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] float spawnRate; 
-    [SerializeField] GameObject enemyPrefab; 
-    // Start is called before the first frame update
+    [SerializeField] GameObject enemyPrefab;
+
+    public enum gameDifficulty {Easy, Medium, Hard};
+    private gameDifficulty difficulty;
+
+    private void Awake()
+    {
+        // difficulty = ... (PASAR DIFICULTAD ELEGIDA EN EL MAINMENU, PODRIA SER UN EVENTO) 
+        
+    }
+
     void Start()
     {
         StartGame(); 

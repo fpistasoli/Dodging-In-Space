@@ -44,7 +44,16 @@ public class PlayerController : MonoBehaviour
             TakeDamage();
             //TakeDamage(other.GetDamage()); //una vez que este programado este metodo en Enemy.cs
         }
+
+        if (other.CompareTag("Goal"))
+        {
+            Debug.Log("YOU WIN!");
+        }
+
+
     }
+
+
 
     private void TakeDamage()
     {
