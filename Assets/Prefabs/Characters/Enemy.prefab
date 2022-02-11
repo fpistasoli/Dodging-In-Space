@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xRange: 4
   yRange: 1.3
-  goalPos: 100
+  goalPos: 200
   force: 2
   playerStartPos: 0
 --- !u!54 &2258170889890435759

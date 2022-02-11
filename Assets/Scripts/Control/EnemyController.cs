@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     {
         ChasePlayer();
 
-        if (gameObject.transform.position.z < playerStartPos)
+        if (gameObject.transform.position.z < playerPos.z)
         {
             Destroy(gameObject);
         }
