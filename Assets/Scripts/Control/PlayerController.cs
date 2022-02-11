@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private float translationForward;
     private Vector3 translationVelocity;
 
-
     void Start()
     {
 
