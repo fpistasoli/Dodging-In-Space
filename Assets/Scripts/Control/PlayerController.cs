@@ -23,6 +23,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         InteractWithMovement();
+
+        Debug.Log("LIVES: " + lives);
+
+
+
+
+
     }
 
     private void InteractWithMovement()
@@ -53,8 +60,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
-
     private void TakeDamage()
     {
         lives--;
@@ -70,4 +75,22 @@ public class PlayerController : MonoBehaviour
     {
         //regresar al menu principal
     }
+
+    public void Heal(int boost)
+    {
+        lives++;
+    }
+
+    public int GetLives()
+    {
+        return lives;
+    }
+
+
+
+
+
 }
+
+
+
