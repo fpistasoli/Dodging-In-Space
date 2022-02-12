@@ -8,20 +8,32 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float yRange;
     [SerializeField] float goalPos;
     [SerializeField] float force;
-    [SerializeField] float playerStartPos;
-    private Vector3 playerPos; 
- 
+    [SerializeField] float speed;
+    [SerializeField] float visibilityDistance;
+    private Vector3 playerPos;
+    private Vector3 playerDirection; 
+    private float distancePlayer;
     // Start is called before the first frame update
     void Start()
     {
         gameObject.transform.position = RandomPos();
-        playerPos = GameObject.Find("Player").transform.position; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        ChasePlayer();
+        playerPos = GameObject.Find("Player").transform.position;
+        playerDirection = (playerPos - gameObject.transform.position);
+        distancePlayer = Vector3.Distance(playerPos, gameObject.transform.position);
+
+        if (distancePlayer < visibilityDistance)
+        {
+            ChasePlayer();
+        }
+        else
+        {
+            Fly();
+        }
 
         if (gameObject.transform.position.z < playerPos.z)
         {
@@ -36,8 +48,12 @@ public class EnemyController : MonoBehaviour
 
     private void ChasePlayer()
     {
-        Vector3 playerDirection = (playerPos - gameObject.transform.position).normalized;
-        gameObject.transform.GetComponent<Rigidbody>().AddForce(playerDirection * force, ForceMode.Acceleration);
+        gameObject.transform.GetComponent<Rigidbody>().MovePosition(gameObject.transform.position + playerDirection.normalized * speed * Time.deltaTime);
+    }
+
+    private void Fly()
+    {
+        gameObject.transform.GetComponent<Rigidbody>().AddForce(playerDirection.normalized * force, ForceMode.Acceleration);
     }
 
 }
