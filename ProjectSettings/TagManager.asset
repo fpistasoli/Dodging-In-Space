@@ -8,6 +8,10 @@ TagManager:
   - Goal
   - Pickup
   - FixedEnemy
+  - LeftBound
+  - RightBound
+  - UpperBound
+  - LowerBound
   layers:
   - Default
   - TransparentFX

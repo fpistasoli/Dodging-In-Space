@@ -140,12 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d36b64729e86c41ad3d9e993159f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xRange: 7
-  yRange: 5
-  goalPos: 200
-  chaseSpeed: 5
-  flySpeed: 12
+  chaseSpeed: 10
+  flySpeed: 7
   visibilityDistance: 5
+  damage: 2
 --- !u!54 &2258170889890435759
 Rigidbody:
   m_ObjectHideFlags: 0
