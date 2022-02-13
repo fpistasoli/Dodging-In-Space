@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player choco con Enemy");
             TakeDamage();
             //TakeDamage(other.GetDamage()); //una vez que este programado este metodo en Enemy.cs
+            //Debug.Log(other.GetComponent<EnemyController>().GetDamage()); 
         }
 
         if (other.CompareTag("Goal"))
