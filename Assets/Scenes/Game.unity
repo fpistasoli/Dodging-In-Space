@@ -264,8 +264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded699e160dbe0840a0b566576bfdad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 2
-  enemyPrefab: {fileID: 4067413336560540884, guid: e176ba84e07bf7347931aec0ba595cd7, type: 3}
+  enemySpawnRate: 2
+  enemyPrefabList:
+  - {fileID: 4067413336560540884, guid: e176ba84e07bf7347931aec0ba595cd7, type: 3}
+  - {fileID: 4067413336560540884, guid: 4fe042c65aa5334469d4a2543f03deb1, type: 3}
 --- !u!43 &343920001
 Mesh:
   m_ObjectHideFlags: 0
@@ -1463,7 +1465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1050040278
 Transform:
   m_ObjectHideFlags: 0

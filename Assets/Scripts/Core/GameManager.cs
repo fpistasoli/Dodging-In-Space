@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] float spawnRate; 
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] float enemySpawnRate; 
+    [SerializeField] List<GameObject> enemyPrefabList;
+    private int enemyListIndx; 
 
     public enum gameDifficulty {Easy, Medium, Hard};
     private gameDifficulty difficulty;
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartGame(); 
+        StartGame(difficulty); 
     }
 
     // Update is called once per frame
@@ -27,17 +28,22 @@ public class GameManager : MonoBehaviour
         
     }
 
-    IEnumerator SpawnEnemy()
+    IEnumerator SpawnEnemy(gameDifficulty difficulty)
     {
+        int level = (int)difficulty + 1; // para que no divida por 0
+
         while(true)
         {
-            yield return new WaitForSeconds(spawnRate);
-            Instantiate(enemyPrefab); 
+            enemySpawnRate /= level; 
+
+            yield return new WaitForSeconds(enemySpawnRate);
+            enemyListIndx = Random.Range(0, enemyPrefabList.Count); 
+            Instantiate(enemyPrefabList[enemyListIndx]); 
         }
     }
 
-    public void StartGame()
+    public void StartGame(gameDifficulty difficulty)
     {
-        StartCoroutine(SpawnEnemy());
+        StartCoroutine(SpawnEnemy(difficulty));
     }
 }
