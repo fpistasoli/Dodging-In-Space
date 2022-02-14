@@ -14,21 +14,16 @@ public class PlayerController : MonoBehaviour
     private float translationHorizontal;
     private float translationForward;
     private Vector3 translationVelocity;
+    private Rigidbody rbPlayer;
 
     void Start()
     {
-
+        rbPlayer = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
         InteractWithMovement();
-
-        Debug.Log("LIVES: " + lives);
-
-
-
-
 
     }
 
@@ -43,14 +38,13 @@ public class PlayerController : MonoBehaviour
         transform.Translate(translationVelocity);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //choque con un non static enemy
     {
         if (other.tag == "Enemy")
         {
             Debug.Log("Player choco con Enemy");
-            TakeDamage();
-            //TakeDamage(other.GetDamage()); //una vez que este programado este metodo en Enemy.cs
-            //Debug.Log(other.GetComponent<EnemyController>().GetDamage()); 
+            int enemyDamage = other.gameObject.GetComponent<EnemyController>().GetDamage();
+            TakeDamage(enemyDamage);
         }
 
         if (other.CompareTag("Goal"))
@@ -58,28 +52,38 @@ public class PlayerController : MonoBehaviour
             Debug.Log("YOU WIN!");
         }
 
-
     }
 
-    private void TakeDamage()
+    private void OnCollisionEnter(Collision collision) //choque con un static enemy
     {
-        lives--;
-        //lives -= other.GetDamage();
-        if (lives == 0)
+        if (collision.gameObject.tag == "Enemy")
         {
-            Die();
-            Debug.Log("GAME OVER");
+            Debug.Log("Player choco con Enemy");
+            int enemyDamage = collision.gameObject.GetComponent<EnemyController>().GetDamage();
+            TakeDamage(enemyDamage);
+        }
+    }
+
+
+
+    private void TakeDamage(int damage)
+    {
+        lives -= damage;
+        if (lives <= 0)
+        {
+            lives = 0;
+            //Die();
         }
     }
 
     private void Die()
     {
-        //regresar al menu principal
+      
     }
 
     public void Heal(int boost)
     {
-        lives++;
+        lives += boost;
     }
 
     public int GetLives()

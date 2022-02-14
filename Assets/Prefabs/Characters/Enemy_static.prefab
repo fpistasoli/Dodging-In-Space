@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visibilityDistance: 5
   damage: 1
+  destroyTime: 0.4
 --- !u!135 &5192353574583847772
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -167,8 +168,8 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4067413336560540884}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_Material: {fileID: 13400000, guid: 883574be71d0beb4180a22c91427b03f, type: 2}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.0243164

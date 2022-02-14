@@ -6,20 +6,18 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] float enemySpawnRate; 
     [SerializeField] List<GameObject> enemyPrefabList;
-    private int enemyListIndx; 
+    private int enemyListIndx;
 
-    public enum gameDifficulty {Easy, Medium, Hard};
-    private gameDifficulty difficulty;
+    private int difficulty; // 0=easy, 1=medium, 2=hard 
 
     private void Awake()
     {
-        // difficulty = ... (PASAR DIFICULTAD ELEGIDA EN EL MAINMENU, PODRIA SER UN EVENTO) 
-        
+        difficulty = ProfileManager.sharedInstance.GetDifficulty();
     }
 
     void Start()
     {
-        StartGame(difficulty); 
+        StartGame();
     }
 
     // Update is called once per frame
@@ -27,8 +25,7 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
-    IEnumerator SpawnEnemy(gameDifficulty difficulty)
+    IEnumerator SpawnEnemy()
     {
         int level = (int)difficulty + 1; // para que no divida por 0
 
@@ -41,9 +38,12 @@ public class GameManager : MonoBehaviour
             Instantiate(enemyPrefabList[enemyListIndx]); 
         }
     }
+    
 
-    public void StartGame(gameDifficulty difficulty)
+    
+    public void StartGame()
     {
-        StartCoroutine(SpawnEnemy(difficulty));
+        StartCoroutine(SpawnEnemy());
     }
+    
 }
