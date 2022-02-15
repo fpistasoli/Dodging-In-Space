@@ -22,7 +22,7 @@ public class HUDController : MonoBehaviour
 
     private void HideGameOverText()
     {
-        gameOverText.enabled = false;
+        gameOverText.gameObject.SetActive(false);
     }
 
     private void ShowDifficulty()
@@ -63,7 +63,7 @@ public class HUDController : MonoBehaviour
     private void GameOverHandler()
     {
         if (player.GetComponent<PlayerController>().GetLives() > 0) { return; }
-        gameOverText.enabled = true;
+        gameOverText.gameObject.SetActive(true);
         StartCoroutine(BackToMainMenu());
     }
 
