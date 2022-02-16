@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class HUDController : MonoBehaviour
 
     [SerializeField] private Text livesValue;   
     [SerializeField] private Text gameOverText;
+    [SerializeField] private TMP_Text gameWonText;
     [SerializeField] private Text levelValue;
 
     private GameObject player;
@@ -17,7 +19,30 @@ public class HUDController : MonoBehaviour
     private void Awake()
     {
         HideGameOverText();
+        HideGameWonText();
         ShowDifficulty();
+    }
+
+    void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+        PlayerController.onGoalReached += onGoalReachedHandler; //el HUDController se suscribe a "onGoalReachedHandler", asi que cuando se llame a onGoalReached() en PlayerController, todos los suscriptores a este evento disparan sus handlers
+    }
+
+    private void onGoalReachedHandler()
+    {
+        gameWonText.gameObject.SetActive(true);
+    }
+
+    void Update()
+    {
+        UpdateLivesValue(); //se deberia hacer con un evento, para no sobrecargar el juego (ya que se actualiza solo cuando me atacan o gano una vida)
+        GameOverHandler(); //tambien deberia hacerse con un evento
+    }
+
+    private void HideGameWonText()
+    {
+        gameWonText.gameObject.SetActive(false);
     }
 
     private void HideGameOverText()
@@ -49,22 +74,10 @@ public class HUDController : MonoBehaviour
 
     }
 
-    void Start()
-    {
-        player = GameObject.FindWithTag("Player");
-    }
-
-    void Update()
-    {
-        UpdateLivesValue(); //se deberia hacer con un evento, para no sobrecargar el juego (ya que se actualiza solo cuando me atacan o gano una vida)
-        GameOverHandler();
-    }
-
     private void GameOverHandler()
     {
         if (player.GetComponent<PlayerController>().GetLives() > 0) { return; }
         gameOverText.gameObject.SetActive(true);
-        StartCoroutine(BackToMainMenu());
     }
 
     private void UpdateLivesValue()
@@ -72,10 +85,14 @@ public class HUDController : MonoBehaviour
         livesValue.text = player.GetComponent<PlayerController>()?.GetLives().ToString();
     }
 
-    private IEnumerator BackToMainMenu()
+    public void BackToMainMenu()
     {
-        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(0); // load main menu
+    }
+
+    private void OnDestroy()
+    {
+        PlayerController.onGoalReached -= onGoalReachedHandler; //siempre que suscribo un evento al crear el objeto, lo desuscribo cuando lo borro por seguridad
     }
 
 }
