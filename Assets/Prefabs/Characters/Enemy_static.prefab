@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visibilityDistance: 5
   damage: 1
-  destroyTime: 0
+  destroyTime: 0.5
 --- !u!135 &5192353574583847772
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] float enemySpawnRate; 
     [SerializeField] List<GameObject> enemyPrefabList;
+
     private int enemyListIndx;
 
     private int difficulty; // 0=easy, 1=medium, 2=hard 
@@ -39,11 +40,10 @@ public class GameManager : MonoBehaviour
         }
     }
     
-
-    
     public void StartGame()
     {
         StartCoroutine(SpawnEnemy());
     }
+
     
 }
