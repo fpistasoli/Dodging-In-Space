@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        float level = (int)difficulty + 1.5f; // para no dividir por 0 
+        enemySpawnRate /= level;
+
         StartGame();
     }
 
@@ -28,12 +31,8 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator SpawnEnemy()
     {
-        int level = (int)difficulty + 1; // para que no divida por 0
-
-        while(true)
+        while(true) // ver si reemplazar por while(!gameOver) 
         {
-            enemySpawnRate /= level; 
-
             yield return new WaitForSeconds(enemySpawnRate);
             enemyListIndx = Random.Range(0, enemyPrefabList.Count); 
             Instantiate(enemyPrefabList[enemyListIndx]); 
@@ -44,6 +43,5 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(SpawnEnemy());
     }
-
     
 }
