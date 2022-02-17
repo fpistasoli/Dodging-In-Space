@@ -14,8 +14,6 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //xRange = GameObject.FindWithTag("RightBound").transform.position.x;
-        //yRange = GameObject.FindWithTag("UpperBound").transform.position.y;
         xRange = GameObject.FindWithTag("Player").GetComponent<PlayerController>().GetXRange();
         yRange = GameObject.FindWithTag("Player").GetComponent<PlayerController>().GetYRange();
 
