@@ -4316,6 +4316,22 @@ PrefabInstance:
       propertyPath: followCamera
       value: 
       objectReference: {fileID: 1464402651}
+    - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
+      propertyPath: rotationAngle
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
+      propertyPath: rotationSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
+      propertyPath: rotationMaxAngle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 14035325520094987, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 7493289773400943777, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
       propertyPath: m_RootOrder
       value: 2

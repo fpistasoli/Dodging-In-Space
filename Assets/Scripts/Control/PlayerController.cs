@@ -11,12 +11,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float xRange; //positivo siempre
     [SerializeField] private float yRange; //positivo siempre
+    [SerializeField] private float rotationSpeed;
+    [SerializeField] private float rotationMaxAngle; //positivo siempre
 
+    private bool isMovingHorizontally = false;
+    private bool isMovingVertically = false;
     private float translationVertical;
     private float translationHorizontal;
     private float translationForward;
     private Vector3 translationVelocity;
     private Rigidbody rbPlayer;
+
+    private float xFixedPos = 0;
+    private float yFixedPos = 0;
+
+
 
     //Eventos
     public static event Action onGoalReached; //uso un evento para no tener que chequear en el update del HUDController todo el tiempo si llegó o no a la meta
@@ -31,8 +40,73 @@ public class PlayerController : MonoBehaviour
     {
         InteractWithMovement();
         RestrictMovement();
+        RotateWithMovement();
+    }
+
+    private void RotateWithMovement()
+    {
+      
+        if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
+        {
+            transform.rotation = Quaternion.Euler(Vector3.zero);
+            return; 
+        } 
+
+        if (translationVelocity.x < 0) //moving left
+        {
+            RotateHorizontally(-1);
+        }
+        else if (translationVelocity.x > 0) //moving right
+        {
+            RotateHorizontally(1);
+        }
+        else if (translationVelocity.y < 0) //moving down
+        {
+            RotateVertically(-1);
+        }
+        else if (translationVelocity.y > 0) //moving up
+        {
+            RotateVertically(1);
+        }
 
     }
+
+    private void RotateVertically(int orientation)
+    {
+        //si ya alcance el maximo angulo de rotacion, no roto mas
+        if (orientation > 0)
+        {
+            if (Mathf.Abs(transform.eulerAngles.x) >= rotationMaxAngle) { return; }  
+        }
+        else if (orientation < 0)
+        {
+            if (transform.eulerAngles.x >= rotationMaxAngle) { return; }
+        }
+
+        transform.Rotate(Vector3.right, Time.deltaTime * rotationSpeed * -orientation, Space.Self);
+
+        transform.position = new Vector3(xFixedPos, transform.position.y, transform.position.z); // para que no rote en el eje "x"
+
+    }
+
+    private void RotateHorizontally(int orientation)
+    {
+        //si ya alcance el maximo angulo de rotacion, no roto mas
+        if (orientation > 0)
+        {
+            if (Mathf.Abs(transform.eulerAngles.z) >= rotationMaxAngle) { return; }  
+        }
+        else if (orientation < 0)
+        {
+            if (transform.eulerAngles.z >= rotationMaxAngle) { return; }
+        }
+        
+        transform.Rotate(Vector3.forward, Time.deltaTime * rotationSpeed * -orientation, Space.Self);
+
+        transform.position = new Vector3(transform.position.x, yFixedPos, transform.position.z); //para que no rote en el eje "y"
+
+    }
+
 
     private void RestrictMovement()
     {
@@ -67,6 +141,27 @@ public class PlayerController : MonoBehaviour
         //update velocity vector (z-coordinate is constantly 'speed' units)
         translationVelocity = new Vector3(translationHorizontal, translationVertical, speed ) * Time.deltaTime;
         transform.Translate(translationVelocity);
+
+        if (translationVertical != 0)
+        {
+            isMovingVertically = true;
+            yFixedPos = transform.position.y;
+        }
+        else
+        {
+            isMovingVertically = false;
+        }
+
+        if (translationHorizontal != 0)
+        {
+            isMovingHorizontally = true;
+            xFixedPos = transform.position.x; 
+        }
+        else
+        {
+            isMovingHorizontally = false;
+        }
+
     }
 
     private void OnTriggerEnter(Collider other) //choque con un non static enemy
