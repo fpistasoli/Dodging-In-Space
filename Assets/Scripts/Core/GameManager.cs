@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private int enemyListIndx;
 
     private int difficulty; // 0=easy, 1=medium, 2=hard 
+    private int score; 
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         float level = (int)difficulty + 1.5f; // para no dividir por 0 
         enemySpawnRate /= level;
+        this.score = 0; 
 
         StartGame();
     }
@@ -44,4 +46,13 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnEnemy());
     }
     
+    public void AddPoints(int points)
+    {
+        this.score += points;
+    }
+
+    public int GetScore()
+    {
+        return this.score; 
+    }
 }

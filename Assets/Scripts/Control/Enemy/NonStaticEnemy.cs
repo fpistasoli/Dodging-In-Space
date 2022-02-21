@@ -36,6 +36,11 @@ public class NonStaticEnemy : EnemyController
 
     private void OnTriggerEnter(Collider other)
     {
+        //if(other.CompareTag("Projectile")) // DESCOMENTAR 
+        //{
+            IncreaseScore();
+        //}
+
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);

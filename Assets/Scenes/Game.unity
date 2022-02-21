@@ -892,6 +892,8 @@ MonoBehaviour:
   gameWonText: {fileID: 1269613848}
   levelValue: {fileID: 1861349143}
   userName: {fileID: 1629640717}
+  score: {fileID: 1917794373}
+  gameManager: {fileID: 194720220}
 --- !u!1001 &543045911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4869,6 +4871,10 @@ PrefabInstance:
       propertyPath: yRange
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 194720220}
     - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
       propertyPath: followCamera
       value: 

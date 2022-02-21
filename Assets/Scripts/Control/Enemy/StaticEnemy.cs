@@ -10,7 +10,6 @@ public class StaticEnemy : EnemyController
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -22,6 +21,11 @@ public class StaticEnemy : EnemyController
 
     private void OnCollisionEnter(Collision collision)
     {
+        //if(collision.gameObject.CompareTag("Projectile")) // DESCOMENTAR 
+        //{
+            IncreaseScore(); 
+        //}
+
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(Destroy());

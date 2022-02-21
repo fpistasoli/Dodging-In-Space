@@ -41,4 +41,9 @@ public class EnemyController : MonoBehaviour
     {
         return damage;
     }
+
+    protected void IncreaseScore()
+    {
+        GameObject.Find("GameManager").GetComponent<GameManager>().AddPoints(damage); 
+    }
 }
