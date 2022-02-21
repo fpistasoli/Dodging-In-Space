@@ -73,10 +73,15 @@ public class PlayerController : MonoBehaviour
 
     private void RotateVertically(int orientation)
     {
-        //si ya alcance el maximo angulo de rotacion, no roto mas
+        FixHorizontalPosition();
+
         if (orientation > 0)
         {
-            if (Mathf.Abs(transform.eulerAngles.x) >= rotationMaxAngle) { return; }  
+            if (transform.rotation.x != 0 && (transform.eulerAngles.x < 360 - rotationMaxAngle)) 
+            {
+                // no roto mas
+                return; 
+            }
         }
         else if (orientation < 0)
         {
@@ -84,29 +89,37 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.Rotate(Vector3.right, Time.deltaTime * rotationSpeed * -orientation, Space.Self);
-
-        transform.position = new Vector3(xFixedPos, transform.position.y, transform.position.z); // para que no rote en el eje "x"
-
     }
+
 
     private void RotateHorizontally(int orientation)
     {
-        //si ya alcance el maximo angulo de rotacion, no roto mas
+        FixVerticalPosition();
+
         if (orientation > 0)
         {
-            if (Mathf.Abs(transform.eulerAngles.z) >= rotationMaxAngle) { return; }  
+            if ( transform.rotation.z != 0 && (transform.eulerAngles.z < 360 - rotationMaxAngle) ) 
+            {
+                // no roto mas
+                return; 
+            }
         }
         else if (orientation < 0)
         {
-            if (transform.eulerAngles.z >= rotationMaxAngle) { return; }
+            if (transform.eulerAngles.z >= rotationMaxAngle) { return; }   
         }
-        
+
         transform.Rotate(Vector3.forward, Time.deltaTime * rotationSpeed * -orientation, Space.Self);
-
-        transform.position = new Vector3(transform.position.x, yFixedPos, transform.position.z); //para que no rote en el eje "y"
-
     }
 
+    private void FixVerticalPosition()
+    {
+        transform.position = new Vector3(transform.position.x, yFixedPos, transform.position.z); //para que no rote en el eje "y"
+    }
+    private void FixHorizontalPosition()
+    {
+        transform.position = new Vector3(xFixedPos, transform.position.y, transform.position.z); // para que no rote en el eje "x"
+    }
 
     private void RestrictMovement()
     {
@@ -137,6 +150,12 @@ public class PlayerController : MonoBehaviour
         //player input
         translationVertical = Input.GetAxis("Vertical") * speed;
         translationHorizontal = Input.GetAxis("Horizontal") * speed;
+
+        //disable potential diagonal movement
+        if (translationVertical != 0 && translationHorizontal != 0)
+        {
+            translationVertical = 0; //or Horizontal (either way)
+        }
 
         //update velocity vector (z-coordinate is constantly 'speed' units)
         translationVelocity = new Vector3(translationHorizontal, translationVertical, speed ) * Time.deltaTime;
