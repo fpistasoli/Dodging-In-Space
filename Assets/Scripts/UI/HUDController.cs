@@ -13,17 +13,18 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Text gameOverText;
     [SerializeField] private TMP_Text gameWonText;
     [SerializeField] private Text levelValue;
-    [SerializeField] Text userName; 
+    [SerializeField] Text userName;
+    [SerializeField] Text score;
+    [SerializeField] GameObject gameManager; 
 
     private GameObject player;
-    private string default_name = "GUEST"; 
+    private string default_name = "GUEST";
 
     private void Awake()
     {
         HideGameOverText();
         HideGameWonText();
         ShowDifficulty();
-        ShowNameAndScore();
     }
 
     void Start()
@@ -40,6 +41,7 @@ public class HUDController : MonoBehaviour
     void Update()
     {
         UpdateLivesValue(); //se deberia hacer con un evento, para no sobrecargar el juego (ya que se actualiza solo cuando me atacan o gano una vida)
+        ShowNameAndScore();
         GameOverHandler(); //tambien deberia hacerse con un evento
     }
 
@@ -80,9 +82,9 @@ public class HUDController : MonoBehaviour
     private void ShowNameAndScore()
     {
         string name = ProfileManager.sharedInstance.UserName;
+        userName.text = name.Trim() != "" ? name : default_name;
 
-        // Si inputName == "" completar con default_name  
-        userName.text = name.Trim() != "" ? name : default_name; 
+        score.text = gameManager.GetComponent<GameManager>().GetScore().ToString();
     }
 
     private void GameOverHandler()
