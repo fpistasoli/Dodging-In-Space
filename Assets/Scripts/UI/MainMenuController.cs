@@ -12,14 +12,12 @@ public class MainMenuController : MonoBehaviour
 {
 
     [SerializeField] Dropdown difficultyDropdown;
-    [SerializeField] TMP_InputField inputName; 
+    [SerializeField] TMP_InputField inputName;
 
     void Start()
     {
-        if(ProfileManager.sharedInstance != null)
-        {
-            inputName.text = ProfileManager.sharedInstance.userName; 
-        }
+        inputName.text = ProfileManager.sharedInstance.UserName;
+        difficultyDropdown.value = ProfileManager.sharedInstance.GetDifficulty(); 
     }
 
     void Update()
@@ -35,7 +33,7 @@ public class MainMenuController : MonoBehaviour
 
     public void SetName()
     {
-        ProfileManager.sharedInstance.userName = inputName.text; 
+        ProfileManager.sharedInstance.UserName = inputName.text; 
     }
 
     public void StartGame()
@@ -45,6 +43,8 @@ public class MainMenuController : MonoBehaviour
 
     public void QuitGame()
     {
+        ProfileManager.sharedInstance.SaveUserLevel(); 
+
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode(); 
 #else

@@ -79,7 +79,7 @@ public class HUDController : MonoBehaviour
 
     private void ShowNameAndScore()
     {
-        string name = ProfileManager.sharedInstance.userName;
+        string name = ProfileManager.sharedInstance.UserName;
 
         // Si inputName == "" completar con default_name  
         userName.text = name.Trim() != "" ? name : default_name; 
