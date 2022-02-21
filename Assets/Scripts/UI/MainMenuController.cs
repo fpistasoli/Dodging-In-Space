@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro; 
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -11,10 +12,12 @@ public class MainMenuController : MonoBehaviour
 {
 
     [SerializeField] Dropdown difficultyDropdown;
+    [SerializeField] TMP_InputField inputName;
 
     void Start()
     {
-        
+        inputName.text = ProfileManager.sharedInstance.UserName;
+        difficultyDropdown.value = ProfileManager.sharedInstance.GetDifficulty(); 
     }
 
     void Update()
@@ -28,6 +31,11 @@ public class MainMenuController : MonoBehaviour
         ProfileManager.sharedInstance.SetDifficulty(selectedDifficulty);
     }
 
+    public void SetName()
+    {
+        ProfileManager.sharedInstance.UserName = inputName.text; 
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
@@ -35,6 +43,8 @@ public class MainMenuController : MonoBehaviour
 
     public void QuitGame()
     {
+        ProfileManager.sharedInstance.SaveUserLevel(); 
+
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode(); 
 #else

@@ -13,14 +13,17 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Text gameOverText;
     [SerializeField] private TMP_Text gameWonText;
     [SerializeField] private Text levelValue;
+    [SerializeField] Text userName; 
 
     private GameObject player;
+    private string default_name = "GUEST"; 
 
     private void Awake()
     {
         HideGameOverText();
         HideGameWonText();
         ShowDifficulty();
+        ShowNameAndScore();
     }
 
     void Start()
@@ -72,6 +75,14 @@ public class HUDController : MonoBehaviour
 
         levelValue.text = difficultyString;
 
+    }
+
+    private void ShowNameAndScore()
+    {
+        string name = ProfileManager.sharedInstance.UserName;
+
+        // Si inputName == "" completar con default_name  
+        userName.text = name.Trim() != "" ? name : default_name; 
     }
 
     private void GameOverHandler()

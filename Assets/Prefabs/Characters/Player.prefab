@@ -130,6 +130,10 @@ MonoBehaviour:
   followCamera: {fileID: 0}
   lives: 5
   speed: 2
+  xRange: 0
+  yRange: 0
+  rotationSpeed: 0
+  rotationMaxAngle: 0
 --- !u!65 &5571598837571785726
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -137,7 +141,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7493289773400943778}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9cb7e465cc4ea924c9a5e0e35ae15bf8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
