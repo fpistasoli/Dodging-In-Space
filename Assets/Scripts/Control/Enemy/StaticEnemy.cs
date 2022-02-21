@@ -25,7 +25,6 @@ public class StaticEnemy : EnemyController
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(Destroy());
-            //gameObject.GetComponent<SphereCollider>().enabled = false; 
         }
     }
 

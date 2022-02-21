@@ -812,6 +812,7 @@ MonoBehaviour:
   gameOverText: {fileID: 152871266}
   gameWonText: {fileID: 1269613848}
   levelValue: {fileID: 1861349143}
+  userName: {fileID: 1629640717}
 --- !u!1001 &543045911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4808,6 +4809,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 5571598837571785726, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 9cb7e465cc4ea924c9a5e0e35ae15bf8, type: 2}
     - target: {fileID: 7493289773400943777, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
       propertyPath: m_RootOrder
       value: 2

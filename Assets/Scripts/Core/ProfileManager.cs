@@ -6,6 +6,7 @@ public class ProfileManager : MonoBehaviour
 {
     public static ProfileManager sharedInstance;
     private int difficulty = 0; // 0=easy, 1=medium, 2=hard (0 po defecto)
+    public string userName { get; set; } 
 
     private void Awake() //SINGLETON: esta clase no se destruye al cargar la escena del juego
     {
