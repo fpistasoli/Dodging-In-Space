@@ -55,8 +55,6 @@ public class ProfileManager : MonoBehaviour
 
     public void SaveUserLevel()
     {
-        int indx = 3 * difficulty;
-
         SavedData data = new SavedData();
         data.playerName = UserName;
         data.lastLevel = difficulty;

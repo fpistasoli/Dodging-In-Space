@@ -45,7 +45,7 @@ public class MainMenuController : MonoBehaviour
         int difficulty = difficultyDropdown.value;
         Dictionary<int, (int, string)> dicDatos = ProfileManager.sharedInstance.GetDicLevelHighScore(); 
 
-        if(dicDatos.Count > 0)
+        if(dicDatos.Count > 0 && ProfileManager.sharedInstance.HighScore == 0)
         {
             ProfileManager.sharedInstance.HighScore = dicDatos[difficulty].Item1;
             ProfileManager.sharedInstance.HighScoreUser = dicDatos[difficulty].Item2; 
