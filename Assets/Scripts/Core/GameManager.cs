@@ -10,11 +10,18 @@ public class GameManager : MonoBehaviour
     private int enemyListIndx;
 
     private int difficulty; // 0=easy, 1=medium, 2=hard 
-    private int score; 
+    private int score;
+    private int highScore;
+    private string highScoreUser;
+    private string playerName; 
 
     private void Awake()
     {
         difficulty = ProfileManager.sharedInstance.GetDifficulty();
+        playerName = ProfileManager.sharedInstance.UserName;
+
+        highScoreUser = ProfileManager.sharedInstance.HighScoreUser;
+        highScore = ProfileManager.sharedInstance.HighScore;
     }
 
     void Start()
@@ -29,7 +36,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SetHighScore(); 
     }
     IEnumerator SpawnEnemy()
     {
@@ -54,5 +61,27 @@ public class GameManager : MonoBehaviour
     public int GetScore()
     {
         return this.score; 
+    }
+
+    public int GetHighScore()
+    {
+        return this.highScore; 
+    }
+
+    public string GetHighScoreUser()
+    {
+        return this.highScoreUser; 
+    }
+
+    private void SetHighScore()
+    {
+        if (this.highScore < this.score)
+        {
+            this.highScore = this.score;
+            this.highScoreUser = this.playerName;
+
+            ProfileManager.sharedInstance.HighScoreUser = this.highScoreUser.ToUpper().Trim();
+            ProfileManager.sharedInstance.HighScore = this.highScore;
+        }
     }
 }

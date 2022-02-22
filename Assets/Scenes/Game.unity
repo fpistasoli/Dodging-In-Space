@@ -893,6 +893,8 @@ MonoBehaviour:
   levelValue: {fileID: 1861349143}
   userName: {fileID: 1629640717}
   score: {fileID: 1917794373}
+  highScoreUser: {fileID: 408958166}
+  highScore: {fileID: 839073831}
   gameManager: {fileID: 194720220}
 --- !u!1001 &543045911
 PrefabInstance:
