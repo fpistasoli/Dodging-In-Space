@@ -10,8 +10,12 @@ public class ProfileManager : MonoBehaviour
     public string UserName { get; set; }
     public string HighScoreUser { get; set; }
     public int HighScore { get; set; }
+    public int LastLevel { get; set; }
 
-    private Dictionary<int, (int, string)> dicLevelHighScore = new Dictionary<int, (int, string)>(); 
+    private Dictionary<int, (int, string)> dicLevelHighScore = new Dictionary<int, (int, string)>();
+    private static SavedData dataInfo;
+    
+
 
     private void Awake() //SINGLETON: esta clase no se destruye al cargar la escena del juego
     {
@@ -55,7 +59,16 @@ public class ProfileManager : MonoBehaviour
 
     public void SaveUserLevel()
     {
-        SavedData data = new SavedData();
+        SavedData data;
+        if (dataInfo == null)
+        {
+            data = new SavedData();
+        }
+        else
+        {
+            data = dataInfo;
+        }
+
         data.playerName = UserName;
         data.lastLevel = difficulty;
 
@@ -63,7 +76,7 @@ public class ProfileManager : MonoBehaviour
         {
             case 0:
                 data.highScore0 = HighScore;
-                data.highScoreUser0 = HighScoreUser; 
+                data.highScoreUser0 = HighScoreUser;
                 break;
             case 1:
                 data.highScore1 = HighScore;
@@ -97,6 +110,8 @@ public class ProfileManager : MonoBehaviour
             dicLevelHighScore.Add(0, (data.highScore0, data.highScoreUser0));
             dicLevelHighScore.Add(1, (data.highScore1, data.highScoreUser1));
             dicLevelHighScore.Add(2, (data.highScore2, data.highScoreUser2));
+
+            dataInfo = data; 
         }
     }
 
@@ -104,5 +119,6 @@ public class ProfileManager : MonoBehaviour
     {
         return dicLevelHighScore; 
     }
+
  }
 
