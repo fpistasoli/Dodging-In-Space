@@ -42,16 +42,14 @@ public class MainMenuController : MonoBehaviour
 
     private void SetHighScoreUser()
     {
-        // Busco el arreglo con los datos de HighScore y tomo los datos de acuerdo a difficulty
-        string[] dataHighScoreUser = ProfileManager.sharedInstance.GetScoreUserArray();
+        // Busco los datos de HighScore y tomo los datos de acuerdo a difficulty
         int difficulty = difficultyDropdown.value;
+        Dictionary<int, (int, string)> dicDatos = ProfileManager.sharedInstance.GetDicLevelHighScore(); 
 
-        if (dataHighScoreUser.Length > 0)
+        if(dicDatos.Count > 0)
         {
-            if(dataHighScoreUser[3 * difficulty + 1] == "") { dataHighScoreUser[3 * difficulty + 1] = "0"; }
-
-            ProfileManager.sharedInstance.HighScore = int.Parse(dataHighScoreUser[3 * difficulty + 1]);
-            ProfileManager.sharedInstance.HighScoreUser = dataHighScoreUser[3 * difficulty + 2];
+            ProfileManager.sharedInstance.HighScore = dicDatos[difficulty].Item1;
+            ProfileManager.sharedInstance.HighScoreUser = dicDatos[difficulty].Item2; 
         }
     }
 
