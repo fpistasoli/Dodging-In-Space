@@ -7,8 +7,11 @@ public class ProfileManager : MonoBehaviour
 {
     public static ProfileManager sharedInstance;
     private int difficulty = 0; // 0=easy, 1=medium, 2=hard (0 po defecto)
-    public string UserName { get; set; } 
-    
+    public string UserName { get; set; }
+    public string HighScoreUser { get; set; }
+    public int HighScore { get; set; }
+
+    private Dictionary<int, (int, string)> dicLevelHighScore = new Dictionary<int, (int, string)>(); 
 
     private void Awake() //SINGLETON: esta clase no se destruye al cargar la escena del juego
     {
@@ -40,7 +43,14 @@ public class ProfileManager : MonoBehaviour
     class SavedData
     {
         public string playerName;
-        public int lastLevel; 
+        public int lastLevel;
+
+        public string highScoreUser0;
+        public int highScore0;
+        public string highScoreUser1;
+        public int highScore1;
+        public string highScoreUser2;
+        public int highScore2; 
     }
 
     public void SaveUserLevel()
@@ -48,6 +58,24 @@ public class ProfileManager : MonoBehaviour
         SavedData data = new SavedData();
         data.playerName = UserName;
         data.lastLevel = difficulty;
+
+        switch (difficulty)
+        {
+            case 0:
+                data.highScore0 = HighScore;
+                data.highScoreUser0 = HighScoreUser; 
+                break;
+            case 1:
+                data.highScore1 = HighScore;
+                data.highScoreUser1 = HighScoreUser;
+                break;
+            case 2:
+                data.highScore2 = HighScore;
+                data.highScoreUser2 = HighScoreUser;
+                break;
+            default: 
+                break; 
+        }
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);  
@@ -63,8 +91,18 @@ public class ProfileManager : MonoBehaviour
             SavedData data = JsonUtility.FromJson<SavedData>(json);
 
             UserName = data.playerName;
-            difficulty = data.lastLevel; 
+            difficulty = data.lastLevel;
+
+            dicLevelHighScore = new Dictionary<int, (int, string)>();
+            dicLevelHighScore.Add(0, (data.highScore0, data.highScoreUser0));
+            dicLevelHighScore.Add(1, (data.highScore1, data.highScoreUser1));
+            dicLevelHighScore.Add(2, (data.highScore2, data.highScoreUser2));
         }
+    }
+
+    public Dictionary<int, (int, string)> GetDicLevelHighScore()
+    {
+        return dicLevelHighScore; 
     }
  }
 

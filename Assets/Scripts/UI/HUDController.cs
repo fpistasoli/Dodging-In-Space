@@ -15,6 +15,8 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Text levelValue;
     [SerializeField] Text userName;
     [SerializeField] Text score;
+    [SerializeField] Text highScoreUser;
+    [SerializeField] Text highScore;
     [SerializeField] GameObject gameManager; 
 
     private GameObject player;
@@ -85,6 +87,8 @@ public class HUDController : MonoBehaviour
         userName.text = name.Trim() != "" ? name : default_name;
 
         score.text = gameManager.GetComponent<GameManager>().GetScore().ToString();
+        highScore.text = gameManager.GetComponent<GameManager>().GetHighScore().ToString();
+        highScoreUser.text = gameManager.GetComponent<GameManager>().GetHighScoreUser();
     }
 
     private void GameOverHandler()
@@ -100,6 +104,10 @@ public class HUDController : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        ProfileManager.sharedInstance.HighScoreUser = highScoreUser.text;
+        ProfileManager.sharedInstance.HighScore = int.Parse(highScore.text);
+        ProfileManager.sharedInstance.SaveUserLevel(); 
+
         SceneManager.LoadScene(0); // load main menu
     }
 

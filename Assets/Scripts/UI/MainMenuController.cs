@@ -17,7 +17,9 @@ public class MainMenuController : MonoBehaviour
     void Start()
     {
         inputName.text = ProfileManager.sharedInstance.UserName;
-        difficultyDropdown.value = ProfileManager.sharedInstance.GetDifficulty(); 
+        difficultyDropdown.value = ProfileManager.sharedInstance.GetDifficulty();
+   
+        SetHighScoreUser();
     }
 
     void Update()
@@ -31,9 +33,23 @@ public class MainMenuController : MonoBehaviour
         ProfileManager.sharedInstance.SetDifficulty(selectedDifficulty);
     }
 
+    // Es llamado en OnValueChange de inputName 
     public void SetName()
     {
         ProfileManager.sharedInstance.UserName = inputName.text; 
+    }
+
+    private void SetHighScoreUser()
+    {
+        // Busco los datos de HighScore y tomo los datos de acuerdo a difficulty
+        int difficulty = difficultyDropdown.value;
+        Dictionary<int, (int, string)> dicDatos = ProfileManager.sharedInstance.GetDicLevelHighScore(); 
+
+        if(dicDatos.Count > 0 && ProfileManager.sharedInstance.HighScore == 0)
+        {
+            ProfileManager.sharedInstance.HighScore = dicDatos[difficulty].Item1;
+            ProfileManager.sharedInstance.HighScoreUser = dicDatos[difficulty].Item2; 
+        }
     }
 
     public void StartGame()
