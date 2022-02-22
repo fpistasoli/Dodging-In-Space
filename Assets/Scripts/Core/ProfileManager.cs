@@ -10,7 +10,7 @@ public class ProfileManager : MonoBehaviour
     public string UserName { get; set; }
     public string HighScoreUser { get; set; }
     public int HighScore { get; set; }
-    private int levelsQty;
+
     private Dictionary<int, (int, string)> dicLevelHighScore = new Dictionary<int, (int, string)>(); 
 
     private void Awake() //SINGLETON: esta clase no se destruye al cargar la escena del juego
@@ -37,11 +37,6 @@ public class ProfileManager : MonoBehaviour
     public int GetDifficulty()
     {
         return difficulty;
-    }
-
-    public void SetLevelsQty(int count)
-    {
-        this.levelsQty = count;
     }
 
     [System.Serializable]

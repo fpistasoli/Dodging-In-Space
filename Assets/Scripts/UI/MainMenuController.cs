@@ -18,8 +18,7 @@ public class MainMenuController : MonoBehaviour
     {
         inputName.text = ProfileManager.sharedInstance.UserName;
         difficultyDropdown.value = ProfileManager.sharedInstance.GetDifficulty();
-        ProfileManager.sharedInstance.SetLevelsQty(difficultyDropdown.options.Count);
-
+   
         SetHighScoreUser();
     }
 
