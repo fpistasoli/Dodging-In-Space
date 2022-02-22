@@ -21,10 +21,14 @@ public class StaticEnemy : EnemyController
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if(collision.gameObject.CompareTag("Projectile")) // DESCOMENTAR 
-        //{
-            IncreaseScore(); 
-        //}
+        GameObject collisionGO = collision.gameObject;
+        GameObject projectileInstigator = collisionGO.GetComponent<Projectile>()?.GetInstigator();
+
+        if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player"))
+        {
+            IncreaseScore();
+            //collisionGO.GetComponent<Renderer>().enabled = false; //CORREGIR, DEBO PEDIRLE EL RENDERER AL CHILD 
+        }
 
         if (collision.gameObject.CompareTag("Player"))
         {

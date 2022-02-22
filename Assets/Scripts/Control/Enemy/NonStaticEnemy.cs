@@ -36,9 +36,9 @@ public class NonStaticEnemy : EnemyController
 
     private void OnTriggerEnter(Collider other)
     {
-        //if(other.CompareTag("Projectile")) // DESCOMENTAR 
+        //if(other.CompareTag("Projectile")) // DESCOMENTAR    (LO PONGO EN COLLISION ENTER YA QUE EL PROYECTIL NO DEBERIA ATRAVESAR AL ENEMY)
         //{
-            IncreaseScore();
+        //   IncreaseScore();
         //}
 
         if (other.CompareTag("Player"))
@@ -46,6 +46,21 @@ public class NonStaticEnemy : EnemyController
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject collisionGO = collision.gameObject;
+        GameObject projectileInstigator = collisionGO.GetComponent<Projectile>()?.GetInstigator();
+
+        if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player"))
+        {
+            IncreaseScore();
+            //collisionGO.GetComponent<Renderer>().enabled = false; //CORREGIR, DEBO PEDIRLE EL RENDERER AL CHILD 
+        }
+
+
+    }
+
 
     private void ChasePlayer()
     {

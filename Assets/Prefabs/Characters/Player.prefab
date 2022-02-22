@@ -134,6 +134,7 @@ MonoBehaviour:
   yRange: 0
   rotationSpeed: 0
   rotationMaxAngle: 0
+  projectilePrefab: {fileID: 4025502319308757263, guid: 07af36ba592b26a4ea329a2b82afc32c, type: 3}
 --- !u!65 &5571598837571785726
 BoxCollider:
   m_ObjectHideFlags: 0

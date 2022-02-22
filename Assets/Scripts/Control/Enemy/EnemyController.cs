@@ -46,4 +46,6 @@ public class EnemyController : MonoBehaviour
     {
         GameObject.Find("GameManager").GetComponent<GameManager>().AddPoints(damage); 
     }
+
+
 }

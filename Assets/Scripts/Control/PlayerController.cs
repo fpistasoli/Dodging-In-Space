@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float yRange; //positivo siempre
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float rotationMaxAngle; //positivo siempre
+    [SerializeField] private GameObject projectilePrefab;
 
     private bool isMovingHorizontally = false;
     private bool isMovingVertically = false;
@@ -41,6 +42,20 @@ public class PlayerController : MonoBehaviour
         InteractWithMovement();
         RestrictMovement();
         RotateWithMovement();
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ShootProjectile();
+        }
+    }
+
+    private void ShootProjectile()
+    {
+        GameObject projectileGO = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        projectileGO.GetComponent<Projectile>()?.SetInstigator(gameObject);
     }
 
     private void RotateWithMovement()

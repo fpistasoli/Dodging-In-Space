@@ -95,6 +95,7 @@ public class HUDController : MonoBehaviour
     {
         if (player.GetComponent<PlayerController>().GetLives() > 0) { return; }
         gameOverText.gameObject.SetActive(true);
+        player.GetComponent<PlayerController>().enabled = false;
     }
 
     private void UpdateLivesValue()
@@ -109,6 +110,7 @@ public class HUDController : MonoBehaviour
         ProfileManager.sharedInstance.SaveUserLevel(); 
 
         SceneManager.LoadScene(0); // load main menu
+
     }
 
     private void OnDestroy()
