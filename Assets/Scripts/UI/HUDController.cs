@@ -110,10 +110,10 @@ public class HUDController : MonoBehaviour
     {
         ProfileManager.sharedInstance.HighScoreUser = highScoreUser.text;
         ProfileManager.sharedInstance.HighScore = int.Parse(highScore.text);
-        ProfileManager.sharedInstance.SaveUserLevel(); 
+        ProfileManager.sharedInstance.SaveUserLevel();
+        ProfileManager.sharedInstance.LoadUserLevel();
 
         SceneManager.LoadScene(0); // load main menu
-
     }
 
     private void OnDestroy()
