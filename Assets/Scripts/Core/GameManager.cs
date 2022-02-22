@@ -13,7 +13,10 @@ public class GameManager : MonoBehaviour
     private int score;
     private int highScore;
     private string highScoreUser;
-    private string playerName; 
+    private string playerName;
+
+    public bool isGameOver;
+
 
     private void Awake()
     {
@@ -40,7 +43,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator SpawnEnemy()
     {
-        while(true) // ver si reemplazar por while(!gameOver) 
+        while(!isGameOver)
         {
             yield return new WaitForSeconds(enemySpawnRate);
             enemyListIndx = Random.Range(0, enemyPrefabList.Count); 
@@ -84,4 +87,9 @@ public class GameManager : MonoBehaviour
             ProfileManager.sharedInstance.HighScore = this.highScore;
         }
     }
+
+
+    
+
+
 }

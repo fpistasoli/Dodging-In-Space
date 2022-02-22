@@ -95,6 +95,9 @@ public class HUDController : MonoBehaviour
     {
         if (player.GetComponent<PlayerController>().GetLives() > 0) { return; }
         gameOverText.gameObject.SetActive(true);
+
+        gameManager.GetComponent<GameManager>().isGameOver = true;
+
         player.GetComponent<PlayerController>().enabled = false;
     }
 

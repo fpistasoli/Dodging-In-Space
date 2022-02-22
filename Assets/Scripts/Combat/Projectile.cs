@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
 
     private void Shoot()
     {
-        rb.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.Force);
+        rb.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.Impulse);
     }
 
     private void Update()

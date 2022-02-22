@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void ShootProjectile()
     {
-        GameObject projectileGO = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        GameObject projectileGO = Instantiate(projectilePrefab, transform.position, Quaternion.identity); //CAMBIAR LA POSICION (spawnpoint)
         projectileGO.GetComponent<Projectile>()?.SetInstigator(gameObject);
     }
 

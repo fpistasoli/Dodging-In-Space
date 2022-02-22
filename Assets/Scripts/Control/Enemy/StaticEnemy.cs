@@ -34,7 +34,8 @@ public class StaticEnemy : EnemyController
         {
             StartCoroutine(Destroy());
         }
-        IncreaseScore(); // BORRAR!!! es solo para pruebas
+        
+
     }
 
     private IEnumerator Destroy()

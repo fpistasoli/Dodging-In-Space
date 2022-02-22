@@ -128,12 +128,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followCamera: {fileID: 0}
-  lives: 5
+  lives: 3
   speed: 2
-  xRange: 0
-  yRange: 0
-  rotationSpeed: 0
-  rotationMaxAngle: 0
+  xRange: 5
+  yRange: 5
+  rotationSpeed: 50
+  rotationMaxAngle: 25
   projectilePrefab: {fileID: 4025502319308757263, guid: 07af36ba592b26a4ea329a2b82afc32c, type: 3}
 --- !u!65 &5571598837571785726
 BoxCollider:
