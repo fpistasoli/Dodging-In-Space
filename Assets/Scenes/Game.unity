@@ -426,6 +426,7 @@ MonoBehaviour:
   enemyPrefabList:
   - {fileID: 4067413336560540884, guid: e176ba84e07bf7347931aec0ba595cd7, type: 3}
   - {fileID: 4067413336560540884, guid: 4fe042c65aa5334469d4a2543f03deb1, type: 3}
+  winningBonus: 20
   isGameOver: 0
 --- !u!43 &343920001
 Mesh:
@@ -4426,6 +4427,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1439290256}
     m_Modifications:
+    - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
       propertyPath: followCamera
       value: 

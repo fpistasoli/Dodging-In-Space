@@ -48,4 +48,25 @@ public class EnemyController : MonoBehaviour
     }
 
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        CollisionHandler(collision);
+    }
+
+    protected virtual void CollisionHandler(Collision collision)
+    {
+        GameObject collisionGO = collision.gameObject;
+        GameObject projectileInstigator = collisionGO.GetComponent<Projectile>()?.GetInstigator();
+
+        if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player"))
+        {
+            IncreaseScore();
+            Debug.Log("SUMO PUNTOS");
+            Destroy(collisionGO);
+            Destroy(gameObject);
+            //gameObject.GetComponent<MeshRenderer>().enabled = false;
+        }
+
+
+    }
 }

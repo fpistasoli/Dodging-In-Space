@@ -19,22 +19,14 @@ public class StaticEnemy : EnemyController
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    protected override void CollisionHandler(Collision collision)
     {
-        GameObject collisionGO = collision.gameObject;
-        GameObject projectileInstigator = collisionGO.GetComponent<Projectile>()?.GetInstigator();
-
-        if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player"))
-        {
-            IncreaseScore();
-            //collisionGO.GetComponent<Renderer>().enabled = false; //CORREGIR, DEBO PEDIRLE EL RENDERER AL CHILD 
-        }
-
+        //base.CollisionHandler(collision);
+       
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(Destroy());
         }
-        
 
     }
 

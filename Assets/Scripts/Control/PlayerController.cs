@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float rotationMaxAngle; //positivo siempre
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject projectileSpawnPoint;
+
 
     private bool isMovingHorizontally = false;
     private bool isMovingVertically = false;
@@ -25,7 +27,6 @@ public class PlayerController : MonoBehaviour
 
     private float xFixedPos = 0;
     private float yFixedPos = 0;
-
 
 
     //Eventos
@@ -42,9 +43,10 @@ public class PlayerController : MonoBehaviour
         InteractWithMovement();
         RestrictMovement();
         RotateWithMovement();
+        InteractWithCombat();
     }
 
-    private void FixedUpdate()
+    private void InteractWithCombat()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void ShootProjectile()
     {
-        GameObject projectileGO = Instantiate(projectilePrefab, transform.position, Quaternion.identity); //CAMBIAR LA POSICION (spawnpoint)
+        GameObject projectileGO = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, Quaternion.identity); //CAMBIAR LA POSICION (spawnpoint)
         projectileGO.GetComponent<Projectile>()?.SetInstigator(gameObject);
     }
 
@@ -210,6 +212,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Goal"))
         {
             onGoalReached?.Invoke(); //llamo al evento "onGoalReached"
+
         }
 
     }

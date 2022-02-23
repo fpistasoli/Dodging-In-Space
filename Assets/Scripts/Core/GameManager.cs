@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] float enemySpawnRate; 
     [SerializeField] List<GameObject> enemyPrefabList;
+    [SerializeField] private int winningBonus;
 
     private int enemyListIndx;
 
@@ -29,11 +30,18 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        PlayerController.onGoalReached += winningBonusHandler;
+
         float level = (int)difficulty + 1.5f; // para no dividir por 0 
         enemySpawnRate /= level;
         this.score = 0; 
 
         StartGame();
+    }
+
+    private void winningBonusHandler()
+    {
+        score += winningBonus;
     }
 
     // Update is called once per frame
@@ -88,8 +96,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        PlayerController.onGoalReached -= winningBonusHandler;
+    }
 
-    
+
+
 
 
 }

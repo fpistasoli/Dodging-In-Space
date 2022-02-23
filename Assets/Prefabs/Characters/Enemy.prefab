@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4067413336222712577}
   - component: {fileID: 4067413336222712582}
   - component: {fileID: 4067413336222712583}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: EnemyModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2258170889890435759}
   - component: {fileID: 1458888610876453744}
   - component: {fileID: 5720190892086452363}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4067413336560540884}
   m_Material: {fileID: 13400000, guid: 9cb7e465cc4ea924c9a5e0e35ae15bf8, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -173,5 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visibilityDistance: 5
   damage: 2
-  chaseSpeed: 5
-  flySpeed: 10
+  chaseSpeed: 1
+  flySpeed: 2

@@ -34,29 +34,43 @@ public class NonStaticEnemy : EnemyController
         }
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
-        //if(other.CompareTag("Projectile")) // DESCOMENTAR    (LO PONGO EN COLLISION ENTER YA QUE EL PROYECTIL NO DEBERIA ATRAVESAR AL ENEMY)
-        //{
-        //   IncreaseScore();
-        //}
-
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
     }
+    */
 
-    private void OnCollisionEnter(Collision collision)
+    protected override void CollisionHandler(Collision collision)
     {
+        //Debug.Log("DISPARE A UN DYNAMIC ENEMY");
+        //base.CollisionHandler(collision);
+
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+
+
+
+        /*
         GameObject collisionGO = collision.gameObject;
         GameObject projectileInstigator = collisionGO.GetComponent<Projectile>()?.GetInstigator();
 
         if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player"))
         {
             IncreaseScore();
-            //collisionGO.GetComponent<Renderer>().enabled = false; //CORREGIR, DEBO PEDIRLE EL RENDERER AL CHILD 
+
+            Destroy(collisionGO);
+            Destroy(gameObject);
+
+            //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
+        */
 
 
     }

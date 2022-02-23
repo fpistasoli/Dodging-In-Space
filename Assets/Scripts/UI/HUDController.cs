@@ -38,6 +38,10 @@ public class HUDController : MonoBehaviour
     private void onGoalReachedHandler()
     {
         gameWonText.gameObject.SetActive(true);
+
+        gameManager.GetComponent<GameManager>().isGameOver = true;
+
+        player.GetComponent<PlayerController>().enabled = false;
     }
 
     void Update()
