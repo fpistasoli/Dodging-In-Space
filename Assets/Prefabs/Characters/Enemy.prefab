@@ -185,7 +185,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4835995705139657764, guid: 33d0450fe6e3b6744a748dfed67ddc2a, type: 3}
       propertyPath: m_Name
-      value: EnemyNonStatic_1
+      value: UFO
       objectReference: {fileID: 0}
     - target: {fileID: 4835995705139657771, guid: 33d0450fe6e3b6744a748dfed67ddc2a, type: 3}
       propertyPath: m_RootOrder

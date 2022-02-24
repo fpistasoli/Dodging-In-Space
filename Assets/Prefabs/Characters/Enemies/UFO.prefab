@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4835995705139657771}
   m_Layer: 0
-  m_Name: EnemyNonStatic_1
+  m_Name: UFO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
