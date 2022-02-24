@@ -198,6 +198,7 @@ MonoBehaviour:
   rotationMaxAngle: 25
   projectilePrefab: {fileID: 4025502319308757263, guid: 07af36ba592b26a4ea329a2b82afc32c, type: 3}
   projectileSpawnPoint: {fileID: 3526716167285712005}
+  translationVelocity: {x: 0, y: 0, z: 0}
 --- !u!65 &5571598837571785726
 BoxCollider:
   m_ObjectHideFlags: 0
