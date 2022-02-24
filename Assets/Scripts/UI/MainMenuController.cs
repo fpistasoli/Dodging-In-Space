@@ -55,8 +55,7 @@ public class MainMenuController : MonoBehaviour
     public void StartGame()
     {
         SetHighScoreUser();
-        ProfileManager.sharedInstance.LastLevel = difficultyDropdown.value;
-
+  
         SceneManager.LoadScene(1);
     }
 

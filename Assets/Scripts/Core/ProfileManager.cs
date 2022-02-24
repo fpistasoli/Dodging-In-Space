@@ -10,7 +10,6 @@ public class ProfileManager : MonoBehaviour
     public string UserName { get; set; }
     public string HighScoreUser { get; set; }
     public int HighScore { get; set; }
-    public int LastLevel { get; set; }
 
     private Dictionary<int, (int, string)> dicLevelHighScore = new Dictionary<int, (int, string)>();
     private static SavedData dataInfo;
