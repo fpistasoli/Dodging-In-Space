@@ -269,7 +269,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e3d8bc2da350f4347bee918673fdd5ee, type: 2}
+  - {fileID: 2100000, guid: faacd7fa151152a41bd1096fec18b344, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -582,7 +582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e3d8bc2da350f4347bee918673fdd5ee, type: 2}
+  - {fileID: 2100000, guid: faacd7fa151152a41bd1096fec18b344, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 6356401463893552175}
   - component: {fileID: 6356401463893552174}
   m_Layer: 0
-  m_Name: Spaceship
+  m_Name: Spaceship_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1097,7 +1097,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -1250,7 +1250,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -1760,7 +1760,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 2
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -1964,7 +1964,7 @@ MonoBehaviour:
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
+    m_SubmeshIndex: 1
     m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
@@ -2838,6 +2838,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e3d8bc2da350f4347bee918673fdd5ee, type: 2}
+  - {fileID: 2100000, guid: faacd7fa151152a41bd1096fec18b344, type: 2}
+  - {fileID: 2100000, guid: b4ef49a805442424298b5a463969878c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
