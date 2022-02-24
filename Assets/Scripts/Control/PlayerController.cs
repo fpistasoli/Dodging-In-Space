@@ -22,11 +22,17 @@ public class PlayerController : MonoBehaviour
     private float translationVertical;
     private float translationHorizontal;
     private float translationForward;
-    private Vector3 translationVelocity;
+    [SerializeField] private Vector3 translationVelocity;
     private Rigidbody rbPlayer;
 
     private float xFixedPos = 0;
     private float yFixedPos = 0;
+
+
+    private float activeRoll, activePitch, activeYaw;
+
+
+
 
 
     //Eventos
@@ -41,10 +47,21 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         InteractWithMovement();
-        RestrictMovement();
         RotateWithMovement();
+        RestrictMovement();
         InteractWithCombat();
+
+
+
+
+
+        //Debug.Log("HORIZONTAL MOVEMENT: " + isMovingHorizontally);
+        //Debug.Log("VERTICAL MOVEMENT: " + isMovingVertically);
+
+        //Debug.Log("X FIXED POS: " + xFixedPos);
+        //Debug.Log("Y FIXED POS: " + yFixedPos);
     }
+
 
     private void InteractWithCombat()
     {
@@ -62,8 +79,8 @@ public class PlayerController : MonoBehaviour
 
     private void RotateWithMovement()
     {
-      
-        if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
+
+        if (!IsMoving()) 
         {
             transform.rotation = Quaternion.Euler(Vector3.zero);
             return; 
@@ -77,7 +94,8 @@ public class PlayerController : MonoBehaviour
         {
             RotateHorizontally(1);
         }
-        else if (translationVelocity.y < 0) //moving down
+        
+        if (translationVelocity.y < 0) //moving down
         {
             RotateVertically(-1);
         }
@@ -86,6 +104,11 @@ public class PlayerController : MonoBehaviour
             RotateVertically(1);
         }
 
+    }
+
+    private bool IsMoving()
+    {
+        return (isMovingHorizontally || isMovingVertically);
     }
 
     private void RotateVertically(int orientation)
@@ -169,10 +192,10 @@ public class PlayerController : MonoBehaviour
         translationHorizontal = Input.GetAxis("Horizontal") * speed;
 
         //disable potential diagonal movement
-        if (translationVertical != 0 && translationHorizontal != 0)
-        {
-            translationVertical = 0; //or Horizontal (either way)
-        }
+        //if (translationVertical != 0 && translationHorizontal != 0)
+        //{
+        //    translationVertical = 0; //or Horizontal (either way)
+        //}
 
         //update velocity vector (z-coordinate is constantly 'speed' units)
         translationVelocity = new Vector3(translationHorizontal, translationVertical, speed ) * Time.deltaTime;
@@ -263,6 +286,23 @@ public class PlayerController : MonoBehaviour
     {
         return yRange;
     }
+
+
+  /* OTRA POSIBLE IMPLEMENTACION DE MOVE + ROTATE
+  private void MoveAndRotate()
+  {
+
+      transform.position += transform.forward * speed * Time.deltaTime;
+
+      activePitch = Input.GetAxisRaw("Vertical") * rotationSpeed * Time.deltaTime;
+      activeRoll = Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime;
+
+      transform.Rotate(activePitch, 0, -activeRoll, Space.Self);
+
+  }
+  */
+
+
 
 
 
