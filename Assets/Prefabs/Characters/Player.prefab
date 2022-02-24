@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6356401463893552161, guid: f6c686669169b224e9b252c5142a0780, type: 3}
       propertyPath: m_Name
-      value: Spaceship_TEST5
+      value: Spaceship_1
       objectReference: {fileID: 0}
     - target: {fileID: 6356401463893552161, guid: f6c686669169b224e9b252c5142a0780, type: 3}
       propertyPath: m_TagString

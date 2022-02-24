@@ -306,11 +306,11 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664523305632881340}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9cb7e465cc4ea924c9a5e0e35ae15bf8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &1664523306624531220
@@ -619,11 +619,11 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664523306624531220}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9cb7e465cc4ea924c9a5e0e35ae15bf8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &3025308992722483989
@@ -655,8 +655,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3025308992722483989}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.15, y: 3, z: 1.12}
-  m_LocalScale: {x: 2, y: 5, z: 2}
+  m_LocalPosition: {x: 2.15, y: 3.4000006, z: 1.3600003}
+  m_LocalScale: {x: 1.303, y: 5, z: 2}
   m_Children: []
   m_Father: {fileID: 6356401463893552170}
   m_RootOrder: 3
@@ -954,7 +954,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3025308992722483989}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9cb7e465cc4ea924c9a5e0e35ae15bf8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -990,8 +990,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6322919357182337084}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.18, y: 3, z: 1.1199999}
-  m_LocalScale: {x: 2, y: 5, z: 2}
+  m_LocalPosition: {x: -2.18, y: 3.4, z: 1.36}
+  m_LocalScale: {x: 2, y: 3.2575, z: 2}
   m_Children: []
   m_Father: {fileID: 6356401463893552170}
   m_RootOrder: 2
@@ -1289,7 +1289,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6322919357182337084}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9cb7e465cc4ea924c9a5e0e35ae15bf8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -1310,7 +1310,7 @@ GameObject:
   - component: {fileID: 6356401463893552175}
   - component: {fileID: 6356401463893552174}
   m_Layer: 0
-  m_Name: Spaceship_TEST5
+  m_Name: Spaceship_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3547,7 +3547,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6356401463893552161}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9cb7e465cc4ea924c9a5e0e35ae15bf8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
