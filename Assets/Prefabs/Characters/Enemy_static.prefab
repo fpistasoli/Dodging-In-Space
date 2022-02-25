@@ -184,13 +184,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4067413336560540875}
     m_Modifications:
+    - target: {fileID: 4494311559026257136, guid: c1693178966386c45be56286e196c2be, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494311559026257136, guid: c1693178966386c45be56286e196c2be, type: 3}
+      propertyPath: lengthInSec
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494311559026257136, guid: c1693178966386c45be56286e196c2be, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494311559026257136, guid: c1693178966386c45be56286e196c2be, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 11.192855
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12.483635
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.5054255
+      objectReference: {fileID: 0}
     - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9
+      value: -9.7
       objectReference: {fileID: 0}
     - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.9
+      value: -43.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 27.7
       objectReference: {fileID: 0}
     - target: {fileID: 7796598805741542129, guid: c1693178966386c45be56286e196c2be, type: 3}
       propertyPath: m_RootOrder
