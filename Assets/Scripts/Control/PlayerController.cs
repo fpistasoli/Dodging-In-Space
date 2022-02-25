@@ -22,18 +22,15 @@ public class PlayerController : MonoBehaviour
     private float translationVertical;
     private float translationHorizontal;
     private float translationForward;
-    [SerializeField] private Vector3 translationVelocity;
+    private Vector3 translationVelocity;
+    private Vector3 previousTranslationVelocity;
+
     private Rigidbody rbPlayer;
 
     private float xFixedPos = 0;
     private float yFixedPos = 0;
 
-
-    private float activeRoll, activePitch, activeYaw;
-
-
-
-
+    //private float activeRoll, activePitch, activeYaw;
 
     //Eventos
     public static event Action onGoalReached; //uso un evento para no tener que chequear en el update del HUDController todo el tiempo si llegó o no a la meta
@@ -50,9 +47,9 @@ public class PlayerController : MonoBehaviour
         RotateWithMovement();
         RestrictMovement();
         InteractWithCombat();
+        UpdateTranslationVelocity();
 
-
-
+        Debug.Log("TRANSLATION VELOCITY: " + translationVelocity/Time.deltaTime);
 
 
         //Debug.Log("HORIZONTAL MOVEMENT: " + isMovingHorizontally);
@@ -62,6 +59,10 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Y FIXED POS: " + yFixedPos);
     }
 
+    private void UpdateTranslationVelocity()
+    {
+        previousTranslationVelocity = translationVelocity / Time.deltaTime;
+    }
 
     private void InteractWithCombat()
     {
@@ -79,8 +80,8 @@ public class PlayerController : MonoBehaviour
 
     private void RotateWithMovement()
     {
-
-        if (!IsMoving()) 
+       
+        if (!IsMoving() || HasSwitchedDirection())
         {
             transform.rotation = Quaternion.Euler(Vector3.zero);
             return; 
@@ -104,6 +105,11 @@ public class PlayerController : MonoBehaviour
             RotateVertically(1);
         }
 
+    }
+
+    private bool HasSwitchedDirection()
+    {
+        return ((previousTranslationVelocity.x != translationVelocity.x / Time.deltaTime) || (previousTranslationVelocity.y != translationVelocity.y / Time.deltaTime) );
     }
 
     private bool IsMoving()
@@ -188,16 +194,9 @@ public class PlayerController : MonoBehaviour
     private void InteractWithMovement()
     {
         //player input
-        translationVertical = Input.GetAxis("Vertical") * speed;
-        translationHorizontal = Input.GetAxis("Horizontal") * speed;
+        translationVertical = Input.GetAxisRaw("Vertical") * speed;
+        translationHorizontal = Input.GetAxisRaw("Horizontal") * speed;
 
-        //disable potential diagonal movement
-        //if (translationVertical != 0 && translationHorizontal != 0)
-        //{
-        //    translationVertical = 0; //or Horizontal (either way)
-        //}
-
-        //update velocity vector (z-coordinate is constantly 'speed' units)
         translationVelocity = new Vector3(translationHorizontal, translationVertical, speed ) * Time.deltaTime;
         transform.Translate(translationVelocity);
 
