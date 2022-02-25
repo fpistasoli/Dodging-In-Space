@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7796598805741542131}
   - component: {fileID: 7796598805741542132}
   - component: {fileID: 7796598805741542133}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Meteorite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
