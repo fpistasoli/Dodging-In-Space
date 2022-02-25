@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] protected float visibilityDistance;
     [SerializeField] protected int damage;
+    [SerializeField] protected ParticleSystem explosionParticle;
     private float xRange;
     private float yRange;
     private float goalPos;
@@ -60,6 +61,8 @@ public class EnemyController : MonoBehaviour
 
         if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player"))
         {
+            explosionParticle.Play(); 
+
             IncreaseScore();
             Debug.Log("SUMO PUNTOS");
             Destroy(collisionGO);
