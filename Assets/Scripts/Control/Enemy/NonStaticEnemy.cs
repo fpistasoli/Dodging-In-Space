@@ -6,7 +6,6 @@ public class NonStaticEnemy : EnemyController
 {
     [SerializeField] float chaseSpeed;
     [SerializeField] float flySpeed;
-
     private Vector3 playerDirection;
     private float distancePlayer;
     private Rigidbody enemyRb;
@@ -52,6 +51,7 @@ public class NonStaticEnemy : EnemyController
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            explosionParticle.Play(); 
             Destroy(gameObject);
         }
 

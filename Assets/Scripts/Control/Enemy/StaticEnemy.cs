@@ -25,6 +25,7 @@ public class StaticEnemy : EnemyController
        
         if (collision.gameObject.CompareTag("Player"))
         {
+            explosionParticle.Play(); 
             StartCoroutine(Destroy());
         }
 

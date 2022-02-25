@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visibilityDistance: 5
   damage: 2
+  explosionParticle: {fileID: 3827985319266159303}
 --- !u!114 &5720190892086452363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visibilityDistance: 5
   damage: 2
+  explosionParticle: {fileID: 3827985319266159303}
   chaseSpeed: 1
   flySpeed: 2
 --- !u!1001 &1594600994739892524
@@ -272,5 +274,10 @@ PrefabInstance:
 --- !u!4 &6142278081741409543 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4835995705139657771, guid: 33d0450fe6e3b6744a748dfed67ddc2a, type: 3}
+  m_PrefabInstance: {fileID: 1594600994739892524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3827985319266159303 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2539631591935818731, guid: 33d0450fe6e3b6744a748dfed67ddc2a, type: 3}
   m_PrefabInstance: {fileID: 1594600994739892524}
   m_PrefabAsset: {fileID: 0}
