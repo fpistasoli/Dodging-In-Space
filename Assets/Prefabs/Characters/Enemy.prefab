@@ -176,8 +176,8 @@ MonoBehaviour:
   visibilityDistance: 5
   damage: 2
   explosionParticle: {fileID: 3827985319266159303}
-  chaseSpeed: 5
-  flySpeed: 10
+  chaseSpeed: 1
+  flySpeed: 2
 --- !u!1001 &1594600994739892524
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver;
 
+    //Events
+    public static event System.Action onNewHighScore;
+
 
     private void Awake()
     {
@@ -93,6 +96,8 @@ public class GameManager : MonoBehaviour
 
             ProfileManager.sharedInstance.HighScoreUser = this.highScoreUser.ToUpper().Trim();
             ProfileManager.sharedInstance.HighScore = this.highScore;
+
+            onNewHighScore?.Invoke();
         }
     }
 

@@ -12,27 +12,53 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Text livesValue;   
     [SerializeField] private Text gameOverText;
     [SerializeField] private TMP_Text gameWonText;
+    [SerializeField] private TMP_Text newHighScoreText;
     [SerializeField] private Text levelValue;
     [SerializeField] Text userName;
     [SerializeField] Text score;
     [SerializeField] Text highScoreUser;
     [SerializeField] Text highScore;
-    [SerializeField] GameObject gameManager; 
+    [SerializeField] GameObject gameManager;
+    [SerializeField] private float newHighScoreTextSpeed;
+    [SerializeField] Canvas canvas;
 
     private GameObject player;
     private string default_name = "GUEST";
+    
 
     private void Awake()
     {
         HideGameOverText();
         HideGameWonText();
+        HideNewHighScoreText();
         ShowDifficulty();
+    }
+
+    private void HideNewHighScoreText()
+    {
+        newHighScoreText.gameObject.SetActive(false);
     }
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        
         PlayerController.onGoalReached += onGoalReachedHandler; //el HUDController se suscribe a "onGoalReachedHandler", asi que cuando se llame a onGoalReached() en PlayerController, todos los suscriptores a este evento disparan sus handlers
+        GameManager.onNewHighScore += onNewHighScoreHandler;
+
+    }
+
+    private void onNewHighScoreHandler()
+    {
+        ShowNewScoreText();
+        //StartCoroutine(ShowNewScoreText());
+    }
+
+    private void ShowNewScoreText()
+    {
+        newHighScoreText.gameObject.SetActive(true);
+        //yield return new WaitForSeconds(3);
+        //newHighScoreText.gameObject.SetActive(false);
     }
 
     private void onGoalReachedHandler()
@@ -49,6 +75,19 @@ public class HUDController : MonoBehaviour
         UpdateLivesValue(); //se deberia hacer con un evento, para no sobrecargar el juego (ya que se actualiza solo cuando me atacan o gano una vida)
         ShowNameAndScore();
         GameOverHandler(); //tambien deberia hacerse con un evento
+        NewHighScoreTextMovement();
+    }
+
+    private void NewHighScoreTextMovement()
+    {
+        if (newHighScoreText.gameObject.activeSelf)
+        {
+            newHighScoreText.transform.Translate(transform.right * newHighScoreTextSpeed * Time.deltaTime);
+            if (newHighScoreText.transform.position.x > canvas.GetComponent<RectTransform>().rect.position.x + canvas.GetComponent<RectTransform>().rect.width + 200f)
+            {
+                newHighScoreText.gameObject.SetActive(false);
+            }
+        }
     }
 
     private void HideGameWonText()
@@ -123,6 +162,7 @@ public class HUDController : MonoBehaviour
     private void OnDestroy()
     {
         PlayerController.onGoalReached -= onGoalReachedHandler; //siempre que suscribo un evento al crear el objeto, lo desuscribo cuando lo borro por seguridad
+        GameManager.onNewHighScore -= onNewHighScoreHandler;
     }
 
 }
