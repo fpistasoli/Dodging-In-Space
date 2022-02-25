@@ -15,8 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationMaxAngle; //positivo siempre
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject projectileSpawnPoint;
+    [SerializeField] private float projectileSpawnCooldownTime;
 
-
+    private bool canShootProjectile = true;
     private bool isMovingHorizontally = false;
     private bool isMovingVertically = false;
     private float translationVertical;
@@ -48,15 +49,6 @@ public class PlayerController : MonoBehaviour
         RestrictMovement();
         InteractWithCombat();
         UpdateTranslationVelocity();
-
-        Debug.Log("TRANSLATION VELOCITY: " + translationVelocity/Time.deltaTime);
-
-
-        //Debug.Log("HORIZONTAL MOVEMENT: " + isMovingHorizontally);
-        //Debug.Log("VERTICAL MOVEMENT: " + isMovingVertically);
-
-        //Debug.Log("X FIXED POS: " + xFixedPos);
-        //Debug.Log("Y FIXED POS: " + yFixedPos);
     }
 
     private void UpdateTranslationVelocity()
@@ -68,14 +60,21 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ShootProjectile();
+            if (canShootProjectile)
+            {
+                canShootProjectile = false;
+                StartCoroutine(ShootProjectile());
+            }
+            
         }
     }
 
-    private void ShootProjectile()
+    private IEnumerator ShootProjectile()
     {
         GameObject projectileGO = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, Quaternion.identity); //CAMBIAR LA POSICION (spawnpoint)
         projectileGO.GetComponent<Projectile>()?.SetInstigator(gameObject);
+        yield return new WaitForSeconds(projectileSpawnCooldownTime);
+        canShootProjectile = true;
     }
 
     private void RotateWithMovement()

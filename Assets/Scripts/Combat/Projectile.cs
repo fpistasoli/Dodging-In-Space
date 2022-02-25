@@ -12,23 +12,28 @@ public class Projectile : MonoBehaviour
     private Vector3 startPoint;
     private GameObject instigator; //game object that shoots the projectile
 
-    private Rigidbody rb;
+    //private Rigidbody rb;
 
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         startPoint = transform.position;
     }
 
     private void Shoot()
     {
-        rb.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.Impulse);
+        //rb.AddForce(transform.forward * speed, ForceMode.Force);
+
+        transform.Translate(transform.forward * speed * Time.deltaTime);
+
+
     }
 
     private void Update()
     {
         DestroyIfOutOfSight();
+        //Debug.Log(rb.velocity.magnitude);
 
     }
 

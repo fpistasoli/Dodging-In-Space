@@ -54,8 +54,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3526716167285712005}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.19999999, y: 6.1400003, z: 4.15}
-  m_LocalScale: {x: 2, y: 2.5, z: 2}
+  m_LocalPosition: {x: 0, y: 2.94, z: 5.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6273978242813242}
   m_RootOrder: 4
@@ -191,14 +191,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followCamera: {fileID: 0}
   lives: 3
-  speed: 2
+  speed: 100000
   xRange: 5
   yRange: 5
   rotationSpeed: 50
   rotationMaxAngle: 25
   projectilePrefab: {fileID: 4025502319308757263, guid: 07af36ba592b26a4ea329a2b82afc32c, type: 3}
   projectileSpawnPoint: {fileID: 3526716167285712005}
-  translationVelocity: {x: 0, y: 0, z: 0}
+  projectileSpawnCooldownTime: 0.75
 --- !u!65 &5571598837571785726
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -305,15 +305,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6356401463893552170, guid: f6c686669169b224e9b252c5142a0780, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.56
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6356401463893552170, guid: f6c686669169b224e9b252c5142a0780, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6356401463893552170, guid: f6c686669169b224e9b252c5142a0780, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6356401463893552170, guid: f6c686669169b224e9b252c5142a0780, type: 3}
       propertyPath: m_LocalRotation.w
