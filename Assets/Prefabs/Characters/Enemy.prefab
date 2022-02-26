@@ -185,18 +185,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4067413336560540875}
     m_Modifications:
-    - target: {fileID: 2539631591935818728, guid: 33d0450fe6e3b6744a748dfed67ddc2a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5791738
-      objectReference: {fileID: 0}
-    - target: {fileID: 2539631591935818728, guid: 33d0450fe6e3b6744a748dfed67ddc2a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 2539631591935818728, guid: 33d0450fe6e3b6744a748dfed67ddc2a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8.05
-      objectReference: {fileID: 0}
     - target: {fileID: 4835995705139657764, guid: 33d0450fe6e3b6744a748dfed67ddc2a, type: 3}
       propertyPath: m_Name
       value: UFO

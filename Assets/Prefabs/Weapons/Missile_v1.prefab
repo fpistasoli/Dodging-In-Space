@@ -6624,7 +6624,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6438580364922848873, guid: 63b52e5493930f44dac744688e30f173, type: 3}
       propertyPath: m_Name
-      value: FlameParticle
+      value: FX_Flame_Missile
       objectReference: {fileID: 0}
     - target: {fileID: 6438580364922848876, guid: 63b52e5493930f44dac744688e30f173, type: 3}
       propertyPath: ShapeModule.type
@@ -6636,7 +6636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6438580364922848876, guid: 63b52e5493930f44dac744688e30f173, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6438580364922848876, guid: 63b52e5493930f44dac744688e30f173, type: 3}
       propertyPath: InitialModule.startLifetime.scalar

@@ -287,10 +287,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3879263010814508198, guid: f6c686669169b224e9b252c5142a0780, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3d8bc2da350f4347bee918673fdd5ee, type: 2}
     - target: {fileID: 4956080277546072151, guid: f6c686669169b224e9b252c5142a0780, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5115152793509420360, guid: f6c686669169b224e9b252c5142a0780, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3d8bc2da350f4347bee918673fdd5ee, type: 2}
     - target: {fileID: 6356401463893552161, guid: f6c686669169b224e9b252c5142a0780, type: 3}
       propertyPath: m_Name
       value: Spaceship_1
@@ -343,6 +351,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6356401463893552172, guid: f6c686669169b224e9b252c5142a0780, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a0d042ddfda51a4f9908525d9f9d4f0, type: 2}
     - target: {fileID: 6356401463893552173, guid: f6c686669169b224e9b252c5142a0780, type: 3}
       propertyPath: m_Mesh
       value: 
