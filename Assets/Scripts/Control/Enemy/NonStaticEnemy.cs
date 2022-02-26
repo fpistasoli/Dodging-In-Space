@@ -51,8 +51,9 @@ public class NonStaticEnemy : EnemyController
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            explosionParticle.Play(); 
-            Destroy(gameObject);
+            explosionParticle.Play();
+            StartCoroutine(Destroy());
+            //Destroy(gameObject);
         }
 
 
@@ -86,4 +87,10 @@ public class NonStaticEnemy : EnemyController
     {
         gameObject.transform.Translate(Vector3.back * flySpeed * Time.deltaTime);
     }
+
+    /*private IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(destroyTime);
+        Destroy(gameObject);
+    }*/
 }

@@ -147,7 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visibilityDistance: 5
   damage: 20
-  explosionParticle: {fileID: 1642021936150590459}
+  explosionParticle: {fileID: 9017296118285484005}
+  destroyTime: 0.15
 --- !u!114 &3406320320766436579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visibilityDistance: 5
   damage: 1
-  explosionParticle: {fileID: 1642021936150590459}
-  destroyTime: 0.5
+  explosionParticle: {fileID: 9017296118285484005}
+  destroyTime: 0.15
 --- !u!65 &2833300430809133126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -184,61 +185,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4067413336560540875}
     m_Modifications:
-    - target: {fileID: 4494311559026257136, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494311559026257136, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: lengthInSec
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494311559026257136, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494311559026257136, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 11.192855
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 12.483635
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5.5054255
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -43.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494311559026257139, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 27.7
-      objectReference: {fileID: 0}
     - target: {fileID: 7796598805741542129, guid: c1693178966386c45be56286e196c2be, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7796598805741542129, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7796598805741542129, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7796598805741542129, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7796598805741542129, guid: c1693178966386c45be56286e196c2be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -292,10 +241,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 7796598805741542133, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7796598805741542134, guid: c1693178966386c45be56286e196c2be, type: 3}
       propertyPath: m_Name
       value: Meteorite
@@ -307,8 +252,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7796598805741542129, guid: c1693178966386c45be56286e196c2be, type: 3}
   m_PrefabInstance: {fileID: 2924704010853588747}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &1642021936150590459 stripped
+--- !u!198 &9017296118285484005 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4494311559026257136, guid: c1693178966386c45be56286e196c2be, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6175980755059777774, guid: c1693178966386c45be56286e196c2be, type: 3}
   m_PrefabInstance: {fileID: 2924704010853588747}
   m_PrefabAsset: {fileID: 0}
