@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class StaticEnemy : EnemyController
 {
-
-    [SerializeField] private float destroyTime;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,18 +22,17 @@ public class StaticEnemy : EnemyController
        
         if (collision.gameObject.CompareTag("Player"))
         {
-            explosionParticle.Play(); 
+            explosionParticle.Play();
             StartCoroutine(Destroy());
         }
 
     }
 
-    private IEnumerator Destroy()
+ /*   private IEnumerator Destroy()
     {
         yield return new WaitForSeconds(destroyTime);
         Destroy(gameObject);
-        //animation for static enemy destruction
-    }
+    }*/
 
 
 }

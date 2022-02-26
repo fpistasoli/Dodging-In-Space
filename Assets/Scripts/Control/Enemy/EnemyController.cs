@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] protected float visibilityDistance;
     [SerializeField] protected int damage;
     [SerializeField] protected ParticleSystem explosionParticle;
+    [SerializeField] protected float destroyTime;
     private float xRange;
     private float yRange;
     private float goalPos;
@@ -66,10 +67,17 @@ public class EnemyController : MonoBehaviour
             IncreaseScore();
             Debug.Log("SUMO PUNTOS");
             Destroy(collisionGO);
-            Destroy(gameObject);
+            StartCoroutine(Destroy());
+            //Destroy(gameObject);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
 
 
+    }
+
+    protected IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(destroyTime);
+        Destroy(gameObject);
     }
 }
