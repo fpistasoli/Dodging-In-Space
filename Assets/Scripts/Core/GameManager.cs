@@ -9,14 +9,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int winningBonus;
 
     private int enemyListIndx;
-
     private int difficulty; // 0=easy, 1=medium, 2=hard 
     private int score;
     private int highScore;
     private string highScoreUser;
     private string playerName;
+    public bool inTheGame = true;
 
-    public bool isGameOver;
+    public bool isGameOver = false;
+    private bool isGameEnd = false;
 
     //Events
     public static event System.Action onNewHighScore;
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        PlayerController.onGoalReached += winningBonusHandler;
+        PlayerController.onGoalReached += onGoalHandler;
 
         float level = (int)difficulty + 1.5f; // para no dividir por 0 
         enemySpawnRate /= level;
@@ -42,16 +43,41 @@ public class GameManager : MonoBehaviour
         StartGame();
     }
 
-    private void winningBonusHandler()
+    private void onGoalHandler()
     {
+        isGameEnd = true;
         score += winningBonus;
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetHighScore(); 
+        SetHighScore();
+
+        if (!isGameOver && !isGameEnd)
+        {
+            PauseButton();
+        }
+
     }
+
+    private void PauseButton()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (inTheGame)
+            {
+                Time.timeScale = 0;
+                inTheGame = false;
+            } 
+            else
+            {
+                Time.timeScale = 1;
+                inTheGame = true;
+            }
+        }
+    }
+
     IEnumerator SpawnEnemy()
     {
         while(!isGameOver)
@@ -103,7 +129,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        PlayerController.onGoalReached -= winningBonusHandler;
+        PlayerController.onGoalReached -= onGoalHandler;
     }
 
 

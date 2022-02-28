@@ -13,6 +13,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Text gameOverText;
     [SerializeField] private TMP_Text gameWonText;
     [SerializeField] private TMP_Text newHighScoreText;
+    [SerializeField] private TMP_Text pausedText;
     [SerializeField] private Text levelValue;
     [SerializeField] Text userName;
     [SerializeField] Text score;
@@ -31,7 +32,13 @@ public class HUDController : MonoBehaviour
         HideGameOverText();
         HideGameWonText();
         HideNewHighScoreText();
+        HidePausedText();
         ShowDifficulty();
+    }
+
+    private void HidePausedText()
+    {
+        pausedText.gameObject.SetActive(false);
     }
 
     private void HideNewHighScoreText()
@@ -75,7 +82,20 @@ public class HUDController : MonoBehaviour
         UpdateLivesValue(); //se deberia hacer con un evento, para no sobrecargar el juego (ya que se actualiza solo cuando me atacan o gano una vida)
         ShowNameAndScore();
         GameOverHandler(); //tambien deberia hacerse con un evento
+        PauseHandler();
         NewHighScoreTextMovement();
+    }
+
+    private void PauseHandler()
+    {
+        if (!gameManager.GetComponent<GameManager>().inTheGame)
+        {
+            pausedText.gameObject.SetActive(true);
+        }
+        else
+        {
+            pausedText.gameObject.SetActive(false);
+        }
     }
 
     private void NewHighScoreTextMovement()

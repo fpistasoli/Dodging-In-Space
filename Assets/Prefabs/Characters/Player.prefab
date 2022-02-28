@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followCamera: {fileID: 0}
-  lives: 5
+  lives: 20
   speed: 100000
   xRange: 5
   yRange: 5

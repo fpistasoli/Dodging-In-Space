@@ -140,8 +140,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7385291, y: 0.8347664, z: 0.85913765}
-  m_Center: {x: -0.5994088, y: -1.3272917, z: -0.34245753}
+  m_Size: {x: 0.515646, y: 0.5612893, z: 0.6762624}
+  m_Center: {x: 1.0843368, y: -0.73156655, z: -0.3273793}
 --- !u!1001 &6581268588203263005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,6 +156,10 @@ PrefabInstance:
     - target: {fileID: 2515048402238555368, guid: 8069f3ae20f82ae48a5295c1036e9de9, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2515048402238555368, guid: 8069f3ae20f82ae48a5295c1036e9de9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2515048402238555369, guid: 8069f3ae20f82ae48a5295c1036e9de9, type: 3}
       propertyPath: m_Mesh
