@@ -241,10 +241,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 7796598805741542133, guid: c1693178966386c45be56286e196c2be, type: 3}
-      propertyPath: m_Convex
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7796598805741542134, guid: c1693178966386c45be56286e196c2be, type: 3}
       propertyPath: m_Name
       value: Meteorite
