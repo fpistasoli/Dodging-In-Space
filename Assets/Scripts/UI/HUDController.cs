@@ -166,7 +166,7 @@ public class HUDController : MonoBehaviour
 
     private void UpdateLivesValue()
     {
-        livesValue.text = player.GetComponent<PlayerController>()?.GetLives().ToString();
+        livesValue.text = "x " + player.GetComponent<PlayerController>()?.GetLives().ToString();
     }
 
     public void BackToMainMenu()
