@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
         InteractWithCombat();
         UpdateTranslationVelocity();
 
+        Debug.Log("IS MOVING VERT " + isMovingVertically);
+        Debug.Log("IS MOVING HORIZ " + isMovingHorizontally);
+
+
         //Debug.Log("TRANSLATION VELOCITY: " + previousTranslationVelocity);
     }
 
@@ -138,14 +142,14 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.eulerAngles.x != 0 && (transform.eulerAngles.x < 360 - rotationMaxAngle || transform.eulerAngles.x <= -rotationMaxAngle) ) 
             {
-                Debug.Log("EULER ANGLES X: " + transform.eulerAngles.x);
+                //Debug.Log("EULER ANGLES X: " + transform.eulerAngles.x);
                 // no roto mas
                 return; 
             }
         }
         else if (orientation < 0)
         {
-            if (transform.eulerAngles.x != 0 && transform.eulerAngles.x >= rotationMaxAngle) { Debug.Log("EULER ANGLES X: " + transform.eulerAngles.x);  return; }
+            if (transform.eulerAngles.x != 0 && transform.eulerAngles.x >= rotationMaxAngle) {  return; }
         }
 
         transform.Rotate(Vector3.right, Time.deltaTime * rotationSpeed * -orientation, Space.Self);
@@ -160,8 +164,8 @@ public class PlayerController : MonoBehaviour
         {
             if ( transform.eulerAngles.z != 0 && (transform.eulerAngles.z < 360 - rotationMaxAngle || transform.eulerAngles.z <= -rotationMaxAngle) ) 
             {
-                Debug.Log("ENTRA ACA");
-                Debug.Log("EULER ANGLES Z: " + transform.eulerAngles.z);
+                //Debug.Log("ENTRA ACA");
+                //Debug.Log("EULER ANGLES Z: " + transform.eulerAngles.z);
 
                 // no roto mas
                 return; 
@@ -169,7 +173,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (orientation < 0)
         {
-            if (transform.eulerAngles.z != 0 && transform.eulerAngles.z >= rotationMaxAngle) { Debug.Log("EULER ANGLES Z: " + transform.eulerAngles.z); return; }   
+            if (transform.eulerAngles.z != 0 && transform.eulerAngles.z >= rotationMaxAngle) { return; }   
         }
 
         transform.Rotate(Vector3.forward, Time.deltaTime * rotationSpeed * -orientation, Space.Self);
@@ -243,7 +247,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            Debug.Log("Player choco con Enemy");
+            //Debug.Log("Player choco con Enemy");
             int enemyDamage = other.gameObject.GetComponent<EnemyController>().GetDamage();
             TakeDamage(enemyDamage);
         }
@@ -260,7 +264,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Player choco con Enemy");
+            //Debug.Log("Player choco con Enemy");
             int enemyDamage = collision.gameObject.GetComponent<EnemyController>().GetDamage();
             TakeDamage(enemyDamage);
         }
