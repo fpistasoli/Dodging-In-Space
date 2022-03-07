@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
 
-    [SerializeField] private Text livesValue;   
+    [SerializeField] private Text livesValue;
     [SerializeField] private Text gameOverText;
     [SerializeField] private TMP_Text gameWonText;
     [SerializeField] private TMP_Text newHighScoreText;
@@ -22,10 +22,11 @@ public class HUDController : MonoBehaviour
     [SerializeField] GameObject gameManager;
     [SerializeField] private float newHighScoreTextSpeed;
     [SerializeField] Canvas canvas;
+    [SerializeField] Button playAgainButton;
 
     private GameObject player;
     private string default_name = "GUEST";
-    
+
 
     private void Awake()
     {
@@ -33,7 +34,13 @@ public class HUDController : MonoBehaviour
         HideGameWonText();
         HideNewHighScoreText();
         HidePausedText();
+        HidePlayAgainButton();
         ShowDifficulty();
+    }
+
+    private void HidePlayAgainButton()
+    {
+        playAgainButton.gameObject.SetActive(false);
     }
 
     private void HidePausedText()
@@ -49,7 +56,7 @@ public class HUDController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        
+
         PlayerController.onGoalReached += onGoalReachedHandler; //el HUDController se suscribe a "onGoalReachedHandler", asi que cuando se llame a onGoalReached() en PlayerController, todos los suscriptores a este evento disparan sus handlers
         GameManager.onNewHighScore += onNewHighScoreHandler;
 
@@ -75,6 +82,8 @@ public class HUDController : MonoBehaviour
         gameManager.GetComponent<GameManager>().isGameOver = true;
 
         player.GetComponent<PlayerController>().enabled = false;
+
+        playAgainButton.gameObject.SetActive(true);
     }
 
     void Update()
@@ -162,6 +171,8 @@ public class HUDController : MonoBehaviour
         gameManager.GetComponent<GameManager>().isGameOver = true;
 
         player.GetComponent<PlayerController>().enabled = false;
+
+        playAgainButton.gameObject.SetActive(true);
     }
 
     private void UpdateLivesValue()
@@ -171,13 +182,24 @@ public class HUDController : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        HandlePersistentData();
+        SceneManager.LoadScene(0); // load main menu
+    }
+
+    private void HandlePersistentData()
+    {
         ProfileManager.sharedInstance.HighScoreUser = highScoreUser.text;
         ProfileManager.sharedInstance.HighScore = int.Parse(highScore.text);
         ProfileManager.sharedInstance.SaveUserLevel();
         ProfileManager.sharedInstance.LoadUserLevel();
-
-        SceneManager.LoadScene(0); // load main menu
     }
+
+    public void PlayAgain()
+    {
+        HandlePersistentData();
+        SceneManager.LoadScene(1); // load current level again
+    }
+
 
     private void OnDestroy()
     {
