@@ -616,7 +616,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-50260
+  m_Name: pb_Mesh-317742
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2564,7 +2564,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-50234
+  m_Name: pb_Mesh-317716
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5821,7 +5821,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-50222
+  m_Name: pb_Mesh-317704
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7637,7 +7637,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-50210
+  m_Name: pb_Mesh-317692
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8187,7 +8187,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-50246
+  m_Name: pb_Mesh-317728
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10048,6 +10048,10 @@ PrefabInstance:
     - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
       propertyPath: speed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
+      propertyPath: slerpRatio
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 581052375, guid: 06169342a4fcc304bb2d998ba85abd99, type: 3}
       propertyPath: followCamera

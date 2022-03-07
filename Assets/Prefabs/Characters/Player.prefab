@@ -199,6 +199,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4025502319308757263, guid: 07af36ba592b26a4ea329a2b82afc32c, type: 3}
   projectileSpawnPoint: {fileID: 3526716167285712005}
   projectileSpawnCooldownTime: 0.75
+  slerpRatio: 0.6
 --- !u!65 &5571598837571785726
 BoxCollider:
   m_ObjectHideFlags: 0

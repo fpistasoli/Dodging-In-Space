@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject projectileSpawnPoint;
     [SerializeField] private float projectileSpawnCooldownTime;
+    [SerializeField] private float slerpRatio;
 
     private bool canShootProjectile = true;
     private bool isMovingHorizontally = false;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private float xFixedPos = 0;
     private float yFixedPos = 0;
+    
 
     //private float activeRoll, activePitch, activeYaw;
 
@@ -49,6 +51,8 @@ public class PlayerController : MonoBehaviour
         RestrictMovement();
         InteractWithCombat();
         UpdateTranslationVelocity();
+
+        //Debug.Log("TRANSLATION VELOCITY: " + previousTranslationVelocity);
     }
 
     private void UpdateTranslationVelocity()
@@ -79,10 +83,11 @@ public class PlayerController : MonoBehaviour
 
     private void RotateWithMovement()
     {
-       
-        if (!IsMoving() || HasSwitchedDirection())
+        
+        if (!IsMoving() || HasSwitchedOppositeDirections())
         {
             transform.rotation = Quaternion.Euler(Vector3.zero);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vector3.zero), slerpRatio);
             return; 
         } 
 
@@ -106,9 +111,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private bool HasSwitchedDirection()
+    private bool HasSwitchedOppositeDirections() //gone from right to left OR from up to down
     {
-        return ((previousTranslationVelocity.x != translationVelocity.x / Time.deltaTime) || (previousTranslationVelocity.y != translationVelocity.y / Time.deltaTime) );
+        //precondition: player is moving
+
+        if (isMovingHorizontally)
+        {
+            return (previousTranslationVelocity.x + translationVelocity.x / Time.deltaTime == 0); //opposite vectors
+        }
+        else //isMovingVertically
+        {
+            return (previousTranslationVelocity.y + translationVelocity.y / Time.deltaTime == 0); //opposite vectors
+        }    
     }
 
     private bool IsMoving()
@@ -122,15 +136,16 @@ public class PlayerController : MonoBehaviour
 
         if (orientation > 0)
         {
-            if (transform.rotation.x != 0 && (transform.eulerAngles.x < 360 - rotationMaxAngle)) 
+            if (transform.eulerAngles.x != 0 && (transform.eulerAngles.x < 360 - rotationMaxAngle || transform.eulerAngles.x <= -rotationMaxAngle) ) 
             {
+                Debug.Log("EULER ANGLES X: " + transform.eulerAngles.x);
                 // no roto mas
                 return; 
             }
         }
         else if (orientation < 0)
         {
-            if (transform.eulerAngles.x >= rotationMaxAngle) { return; }
+            if (transform.eulerAngles.x != 0 && transform.eulerAngles.x >= rotationMaxAngle) { Debug.Log("EULER ANGLES X: " + transform.eulerAngles.x);  return; }
         }
 
         transform.Rotate(Vector3.right, Time.deltaTime * rotationSpeed * -orientation, Space.Self);
@@ -143,15 +158,18 @@ public class PlayerController : MonoBehaviour
 
         if (orientation > 0)
         {
-            if ( transform.rotation.z != 0 && (transform.eulerAngles.z < 360 - rotationMaxAngle) ) 
+            if ( transform.eulerAngles.z != 0 && (transform.eulerAngles.z < 360 - rotationMaxAngle || transform.eulerAngles.z <= -rotationMaxAngle) ) 
             {
+                Debug.Log("ENTRA ACA");
+                Debug.Log("EULER ANGLES Z: " + transform.eulerAngles.z);
+
                 // no roto mas
                 return; 
             }
         }
         else if (orientation < 0)
         {
-            if (transform.eulerAngles.z >= rotationMaxAngle) { return; }   
+            if (transform.eulerAngles.z != 0 && transform.eulerAngles.z >= rotationMaxAngle) { Debug.Log("EULER ANGLES Z: " + transform.eulerAngles.z); return; }   
         }
 
         transform.Rotate(Vector3.forward, Time.deltaTime * rotationSpeed * -orientation, Space.Self);
