@@ -47,13 +47,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         InteractWithMovement();
+        InteractWithCombat();
         RotateWithMovement();
         RestrictMovement();
-        InteractWithCombat();
-        UpdateTranslationVelocity();
 
         Debug.Log("IS MOVING VERT " + isMovingVertically);
         Debug.Log("IS MOVING HORIZ " + isMovingHorizontally);
+
+        UpdateTranslationVelocity();
 
 
         //Debug.Log("TRANSLATION VELOCITY: " + previousTranslationVelocity);
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour
         if (!IsMoving() || HasSwitchedOppositeDirections())
         {
             transform.rotation = Quaternion.Euler(Vector3.zero);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vector3.zero), slerpRatio);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(Vector3.zero), slerpRatio);
             return; 
         } 
 
@@ -119,14 +120,17 @@ public class PlayerController : MonoBehaviour
     {
         //precondition: player is moving
 
-        if (isMovingHorizontally)
-        {
-            return (previousTranslationVelocity.x + translationVelocity.x / Time.deltaTime == 0); //opposite vectors
-        }
-        else //isMovingVertically
-        {
+       if (isMovingHorizontally) //only horizontally OR horizontally and vertically
+       {
+            return (previousTranslationVelocity.x + translationVelocity.x / Time.deltaTime == 0) || //opposite vectors
+                (previousTranslationVelocity.x == 0 && translationVelocity.x / Time.deltaTime != 0); //going horiz, then vert, and then horiz again
+       }
+       else //only moving vertically
+       {
             return (previousTranslationVelocity.y + translationVelocity.y / Time.deltaTime == 0); //opposite vectors
-        }    
+               
+
+       }    
     }
 
     private bool IsMoving()
@@ -191,24 +195,28 @@ public class PlayerController : MonoBehaviour
     private void RestrictMovement()
     {
         Vector3 currentPosition = transform.position;
+        float newXPos = currentPosition.x;
+        float newYPos = currentPosition.y;
 
         if (currentPosition.x >= xRange)
         {
-            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+            newXPos = xRange;
         }
         else if (currentPosition.x <= -xRange)
         {
-            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+            newXPos = -xRange;
         }
 
         if (currentPosition.y >= yRange)
         {
-            transform.position = new Vector3(transform.position.x, yRange, transform.position.z);
+            newYPos = yRange;
         }
         else if (currentPosition.y <= -yRange)
         {
-            transform.position = new Vector3(transform.position.x, -yRange, transform.position.z);
+            newYPos = -yRange;
         }
+
+        transform.position = new Vector3(newXPos, newYPos, transform.position.z);
 
     }
 
