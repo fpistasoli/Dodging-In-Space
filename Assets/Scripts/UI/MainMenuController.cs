@@ -13,6 +13,8 @@ public class MainMenuController : MonoBehaviour
 
     [SerializeField] Dropdown difficultyDropdown;
     [SerializeField] TMP_InputField inputName;
+    [SerializeField] Image activeAudioImage;
+    [SerializeField] Image muteAudioImage; 
 
     void Start()
     {
@@ -31,6 +33,7 @@ public class MainMenuController : MonoBehaviour
     {
         int selectedDifficulty = difficultyDropdown.value;
         ProfileManager.sharedInstance.SetDifficulty(selectedDifficulty);
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
     }
 
     // Es llamado en OnValueChange de inputName 
@@ -55,12 +58,13 @@ public class MainMenuController : MonoBehaviour
     public void StartGame()
     {
         SetHighScoreUser();
-  
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
         SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
         ProfileManager.sharedInstance.SaveUserLevel(); 
 
 #if UNITY_EDITOR
@@ -68,5 +72,22 @@ public class MainMenuController : MonoBehaviour
 #else
         Application.Quit(); 
 #endif
+    }
+
+    public void MuteAudio()
+    {
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
+        if (AudioListener.volume == 1)
+        {
+            AudioListener.volume = 0;
+            muteAudioImage.enabled = true;
+            activeAudioImage.enabled = false; 
+        }
+        else
+        {
+            AudioListener.volume = 1;
+            muteAudioImage.enabled = false;
+            activeAudioImage.enabled = true; 
+        }
     }
 }

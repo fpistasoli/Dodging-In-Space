@@ -26,7 +26,7 @@ public class PickupController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            FindObjectOfType<AudioManager>().Play("Powerup");
+            FindObjectOfType<AudioManager>().Play("Heal");
             player.GetComponent<PlayerController>().Heal(boost);
             Destroy(gameObject);
         } 

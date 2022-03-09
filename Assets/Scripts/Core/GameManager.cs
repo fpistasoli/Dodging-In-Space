@@ -67,11 +67,15 @@ public class GameManager : MonoBehaviour
         {
             if (inTheGame)
             {
+                FindObjectOfType<AudioManager>().Play("PauseIn");
+                FindObjectOfType<AudioManager>().Pause("Theme");
                 Time.timeScale = 0;
                 inTheGame = false;
             } 
             else
             {
+                FindObjectOfType<AudioManager>().Play("PauseOut");
+                FindObjectOfType<AudioManager>().UnPause("Theme");
                 Time.timeScale = 1;
                 inTheGame = true;
             }

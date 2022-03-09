@@ -22,6 +22,7 @@ public class StaticEnemy : EnemyController
        
         if (collision.gameObject.CompareTag("Player"))
         {
+            FindObjectOfType<AudioManager>().Play("PlayerCollision");
             explosionParticle.Play();
             StartCoroutine(Destroy());
         }
