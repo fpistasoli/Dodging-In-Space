@@ -10,11 +10,13 @@ using UnityEditor;
 #endif
 public class MainMenuController : MonoBehaviour
 {
-
+    
     [SerializeField] Dropdown difficultyDropdown;
     [SerializeField] TMP_InputField inputName;
     [SerializeField] Image activeAudioImage;
-    [SerializeField] Image muteAudioImage; 
+    [SerializeField] Image muteAudioImage;
+    [SerializeField] Button creditsButton;
+
 
     void Start()
     {
