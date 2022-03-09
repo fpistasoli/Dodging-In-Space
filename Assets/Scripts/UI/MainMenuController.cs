@@ -71,4 +71,13 @@ public class MainMenuController : MonoBehaviour
         Application.Quit(); 
 #endif
     }
+
+    public void MuteAudio()
+    {
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
+        if (AudioListener.volume == 1)
+            AudioListener.volume = 0;
+        else
+            AudioListener.volume = 1; 
+    }
 }
