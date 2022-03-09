@@ -13,6 +13,8 @@ public class MainMenuController : MonoBehaviour
 
     [SerializeField] Dropdown difficultyDropdown;
     [SerializeField] TMP_InputField inputName;
+    [SerializeField] Image activeAudioImage;
+    [SerializeField] Image muteAudioImage; 
 
     void Start()
     {
@@ -76,8 +78,16 @@ public class MainMenuController : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("ButtonClic");
         if (AudioListener.volume == 1)
+        {
             AudioListener.volume = 0;
+            muteAudioImage.enabled = true;
+            activeAudioImage.enabled = false; 
+        }
         else
-            AudioListener.volume = 1; 
+        {
+            AudioListener.volume = 1;
+            muteAudioImage.enabled = false;
+            activeAudioImage.enabled = true; 
+        }
     }
 }
