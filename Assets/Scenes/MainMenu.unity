@@ -607,6 +607,7 @@ MonoBehaviour:
   inputName: {fileID: 1621267397}
   activeAudioImage: {fileID: 1081782075}
   muteAudioImage: {fileID: 1521882901}
+  creditsButton: {fileID: 0}
 --- !u!1 &509993335
 GameObject:
   m_ObjectHideFlags: 0
@@ -3965,7 +3966,7 @@ RectTransform:
   m_GameObject: {fileID: 1979146492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3297783, y: 1.1856968, z: 2}
+  m_LocalScale: {x: 0.23826486, y: 1.1738399, z: 2}
   m_Children:
   - {fileID: 1081782074}
   - {fileID: 1521882900}
