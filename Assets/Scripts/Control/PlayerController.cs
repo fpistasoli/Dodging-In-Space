@@ -289,13 +289,15 @@ public class PlayerController : MonoBehaviour
         if (lives <= 0)
         {
             lives = 0;
-            //Die();
+            
+            Die();
         }
     }
 
     private void Die()
     {
-      
+        FindObjectOfType<AudioManager>().Stop("Theme");
+        FindObjectOfType<AudioManager>().Play("GameOverTune");
     }
 
     public void Heal(int boost)

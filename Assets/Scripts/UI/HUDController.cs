@@ -70,6 +70,7 @@ public class HUDController : MonoBehaviour
 
     private void ShowNewScoreText()
     {
+        FindObjectOfType<AudioManager>().Play("HighScore");
         newHighScoreText.gameObject.SetActive(true);
         //yield return new WaitForSeconds(3);
         //newHighScoreText.gameObject.SetActive(false);
@@ -184,6 +185,10 @@ public class HUDController : MonoBehaviour
     public void BackToMainMenu()
     {
         HandlePersistentData();
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
+        FindObjectOfType<AudioManager>().Stop("VictoryTune");
+        FindObjectOfType<AudioManager>().Stop("GameOverTune");
+        FindObjectOfType<AudioManager>().Play("Theme");
         SceneManager.LoadScene(0); // load main menu
     }
 

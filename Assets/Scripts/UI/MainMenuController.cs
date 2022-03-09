@@ -31,6 +31,7 @@ public class MainMenuController : MonoBehaviour
     {
         int selectedDifficulty = difficultyDropdown.value;
         ProfileManager.sharedInstance.SetDifficulty(selectedDifficulty);
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
     }
 
     // Es llamado en OnValueChange de inputName 
@@ -55,12 +56,13 @@ public class MainMenuController : MonoBehaviour
     public void StartGame()
     {
         SetHighScoreUser();
-  
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
         SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
         ProfileManager.sharedInstance.SaveUserLevel(); 
 
 #if UNITY_EDITOR

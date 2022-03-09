@@ -1982,17 +1982,23 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     source: {fileID: 0}
-    loop: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    loop: 1
+  - name: GameOverTune
+    clip: {fileID: 8300000, guid: 63229a39fa7894d4c9f9b7a414dd0fb2, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: ButtonClic
+    clip: {fileID: 8300000, guid: 73cc8501d8016834f8f9da536e0f4937, type: 3}
+    volume: 0.4
+    pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: HighScore
+    clip: {fileID: 8300000, guid: 73cc8501d8016834f8f9da536e0f4937, type: 3}
+    volume: 0.4
+    pitch: 1
     source: {fileID: 0}
     loop: 0
 --- !u!4 &1364787846
