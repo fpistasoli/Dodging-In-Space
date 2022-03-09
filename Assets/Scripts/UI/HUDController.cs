@@ -197,6 +197,9 @@ public class HUDController : MonoBehaviour
 
     public void PlayAgain()
     {
+        FindObjectOfType<AudioManager>().Stop("VictoryTune");
+        FindObjectOfType<AudioManager>().Stop("GameOverTune");
+        FindObjectOfType<AudioManager>().Play("Theme");
         HandlePersistentData();
         SceneManager.LoadScene(1); // load current level again
     }

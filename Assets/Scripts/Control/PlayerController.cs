@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ShootProjectile()
     {
+        FindObjectOfType<AudioManager>().Play("ShootProjectile"); 
         GameObject projectileGO = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, Quaternion.identity); //CAMBIAR LA POSICION (spawnpoint)
         projectileGO.GetComponent<Projectile>()?.SetInstigator(gameObject);
         yield return new WaitForSeconds(projectileSpawnCooldownTime);
@@ -262,6 +263,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Goal"))
         {
+            FindObjectOfType<AudioManager>().Stop("Theme");
+            FindObjectOfType<AudioManager>().Play("VictoryTune");
             onGoalReached?.Invoke(); //llamo al evento "onGoalReached"
 
         }

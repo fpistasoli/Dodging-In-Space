@@ -62,6 +62,7 @@ public class EnemyController : MonoBehaviour
 
         if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player"))
         {
+            FindObjectOfType<AudioManager>().Play("EnemyExplosion");
             explosionParticle.Play(); 
 
             IncreaseScore();

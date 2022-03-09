@@ -51,6 +51,7 @@ public class NonStaticEnemy : EnemyController
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            FindObjectOfType<AudioManager>().Play("PlayerCollision");
             explosionParticle.Play();
             StartCoroutine(Destroy());
             //Destroy(gameObject);

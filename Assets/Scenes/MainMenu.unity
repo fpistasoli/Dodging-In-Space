@@ -1941,46 +1941,46 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 1
-  - name: Powerup
+  - name: Heal
     clip: {fileID: 8300000, guid: 7e8c89f3e2a7b5646b334740d0614d29, type: 3}
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: ShootProjectile
+    clip: {fileID: 8300000, guid: 748bfb181280bbd4eb7fe6441e03540c, type: 3}
+    volume: 0.4
+    pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: EnemyExplosion
+    clip: {fileID: 8300000, guid: b891414da2e911344bbbf732ae545d2c, type: 3}
+    volume: 0.6
+    pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: PlayerCollision
+    clip: {fileID: 8300000, guid: 8c90bbcaac28aa24e9058e22f448c22b, type: 3}
+    volume: 0.5
+    pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: PauseOut
+    clip: {fileID: 8300000, guid: 92523c57693e9854381fddcea9d4fabb, type: 3}
+    volume: 0.5
+    pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: PauseIn
+    clip: {fileID: 8300000, guid: 72492e8a4b8d2c34e825bde2c213eccb, type: 3}
+    volume: 0.5
+    pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: VictoryTune
+    clip: {fileID: 8300000, guid: 3e5a2f29bf746d84d8284499150b77bf, type: 3}
+    volume: 0.3
+    pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: 
