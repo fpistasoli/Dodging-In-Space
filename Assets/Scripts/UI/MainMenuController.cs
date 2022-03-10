@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro; 
+using TMPro;
+using System;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -13,23 +14,65 @@ public class MainMenuController : MonoBehaviour
     
     [SerializeField] Dropdown difficultyDropdown;
     [SerializeField] TMP_InputField inputName;
+    [SerializeField] GameObject inputNamePlaceholder;
     [SerializeField] Image activeAudioImage;
     [SerializeField] Image muteAudioImage;
     [SerializeField] Button creditsButton;
+    [SerializeField] GameObject creditsPanel;
 
+    private TextMeshProUGUI inputNamePlaceholderText;
+    private bool placeholderFlashing = true;
 
     void Start()
     {
         inputName.text = ProfileManager.sharedInstance.UserName;
         difficultyDropdown.value = ProfileManager.sharedInstance.GetDifficulty();
-   
+
+        inputNamePlaceholderText = inputNamePlaceholder.GetComponent<TextMeshProUGUI>();
+
         SetHighScoreUser();
-        ShowAudioIcon(); 
+        ShowAudioIcon();
+        StartCoroutine("ShowAndHidePlaceholder");
+        HideCreditsPanel();
+    }
+
+    public void HideCreditsPanel()
+    {
+        creditsPanel.gameObject.SetActive(false);
+    }
+
+    public void ShowCreditsPanel()
+    {
+        creditsPanel.gameObject.SetActive(true);
+    }
+
+    private IEnumerator ShowAndHidePlaceholder()
+    {
+        int i = 0;
+        while(placeholderFlashing)
+        {
+            ShowPlaceholder();
+            yield return new WaitForSeconds(.5f);
+            HidePlaceholder();
+            yield return new WaitForSeconds(.5f);
+            i++;
+        }
+        
+    }
+
+    private void HidePlaceholder()
+    {
+        inputNamePlaceholderText.enabled = false;
+    }
+
+    private void ShowPlaceholder()
+    {
+        inputNamePlaceholderText.enabled = true;
     }
 
     void Update()
     {
-        
+
     }
 
     public void SetDifficulty()
@@ -42,6 +85,7 @@ public class MainMenuController : MonoBehaviour
     // Es llamado en OnValueChange de inputName 
     public void SetName()
     {
+        placeholderFlashing = false;
         ProfileManager.sharedInstance.UserName = inputName.text.ToUpper().Trim(); 
     }
 
