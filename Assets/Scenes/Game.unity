@@ -1307,6 +1307,8 @@ MonoBehaviour:
   enemyPrefabList:
   - {fileID: 4067413336560540884, guid: e176ba84e07bf7347931aec0ba595cd7, type: 3}
   - {fileID: 4067413336560540884, guid: 4fe042c65aa5334469d4a2543f03deb1, type: 3}
+  - {fileID: 4067413336560540884, guid: c0d578b6c0c1bd34f8c165d608c15151, type: 3}
+  - {fileID: 4067413336560540884, guid: 69b15cad44bf35043b35dd2f5505479c, type: 3}
   winningBonus: 20
   inTheGame: 1
   isGameOver: 0
