@@ -35,7 +35,8 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 RandomPos()
     {
-        return new Vector3(Random.Range(-xRange, xRange), Random.Range(-yRange, yRange), 
+        return new Vector3(Random.Range(-xRange - visibilityDistance, xRange + visibilityDistance), 
+            Random.Range(-yRange - visibilityDistance, yRange + visibilityDistance), 
             Random.Range(playerPos.z + visibilityDistance, goalPos));
     }
 
