@@ -53,7 +53,9 @@ public class ProfileManager : MonoBehaviour
         public string highScoreUser1;
         public int highScore1;
         public string highScoreUser2;
-        public int highScore2; 
+        public int highScore2;
+
+        public bool activeAudio; 
     }
 
     public void SaveUserLevel()
@@ -89,6 +91,8 @@ public class ProfileManager : MonoBehaviour
                 break; 
         }
 
+        data.activeAudio = AudioListener.volume == 1; 
+
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);  
     }
@@ -104,6 +108,7 @@ public class ProfileManager : MonoBehaviour
 
             UserName = data.playerName;
             difficulty = data.lastLevel;
+            AudioListener.volume = data.activeAudio ? 1 : 0; 
 
             dicLevelHighScore = new Dictionary<int, (int, string)>();
             dicLevelHighScore.Add(0, (data.highScore0, data.highScoreUser0));
