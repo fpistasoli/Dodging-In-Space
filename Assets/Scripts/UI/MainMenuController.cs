@@ -24,6 +24,7 @@ public class MainMenuController : MonoBehaviour
         difficultyDropdown.value = ProfileManager.sharedInstance.GetDifficulty();
    
         SetHighScoreUser();
+        ShowAudioIcon(); 
     }
 
     void Update()
@@ -90,6 +91,20 @@ public class MainMenuController : MonoBehaviour
             AudioListener.volume = 1;
             muteAudioImage.enabled = false;
             activeAudioImage.enabled = true; 
+        }
+    }
+
+    private void ShowAudioIcon()
+    {
+        if (AudioListener.volume == 0)
+        {
+            muteAudioImage.enabled = true;
+            activeAudioImage.enabled = false;
+        }
+        else
+        {
+            muteAudioImage.enabled = false;
+            activeAudioImage.enabled = true;
         }
     }
 }
