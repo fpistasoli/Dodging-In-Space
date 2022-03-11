@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     private float yRange;
     private float goalPos;
     protected Vector3 playerPos;
+    [SerializeField] float offset; 
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +36,9 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 RandomPos()
     {
-        return new Vector3(Random.Range(-xRange - visibilityDistance, xRange + visibilityDistance), 
-            Random.Range(-yRange - visibilityDistance, yRange + visibilityDistance), 
-            Random.Range(playerPos.z + visibilityDistance, goalPos));
+        return new Vector3(Random.Range(-xRange + offset, xRange - offset), 
+            Random.Range(-yRange + offset, yRange - offset), 
+            Random.Range(playerPos.z + offset, goalPos));
     }
 
     public int GetDamage()
@@ -70,8 +71,6 @@ public class EnemyController : MonoBehaviour
             Debug.Log("SUMO PUNTOS");
             Destroy(collisionGO);
             StartCoroutine(Destroy());
-            //Destroy(gameObject);
-            //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
 
 

@@ -33,47 +33,17 @@ public class NonStaticEnemy : EnemyController
         }
     }
 
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
-    }
-    */
-
     protected override void CollisionHandler(Collision collision)
     {
         //Debug.Log("DISPARE A UN DYNAMIC ENEMY");
-        //base.CollisionHandler(collision);
-
-
+  
         if (collision.gameObject.CompareTag("Player"))
         {
             FindObjectOfType<AudioManager>().Play("PlayerCollision");
             explosionParticle.Play();
             StartCoroutine(Destroy());
-            //Destroy(gameObject);
+         
         }
-
-
-
-        /*
-        GameObject collisionGO = collision.gameObject;
-        GameObject projectileInstigator = collisionGO.GetComponent<Projectile>()?.GetInstigator();
-
-        if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player"))
-        {
-            IncreaseScore();
-
-            Destroy(collisionGO);
-            Destroy(gameObject);
-
-            //gameObject.GetComponent<MeshRenderer>().enabled = false;
-        }
-        */
-
 
     }
 
@@ -88,10 +58,4 @@ public class NonStaticEnemy : EnemyController
     {
         gameObject.transform.Translate(Vector3.back * flySpeed * Time.deltaTime);
     }
-
-    /*private IEnumerator Destroy()
-    {
-        yield return new WaitForSeconds(destroyTime);
-        Destroy(gameObject);
-    }*/
 }

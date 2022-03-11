@@ -149,6 +149,7 @@ MonoBehaviour:
   damage: 1
   explosionParticle: {fileID: 9017296118285484005}
   destroyTime: 0.15
+  offset: 0
 --- !u!114 &3406320320766436579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +166,7 @@ MonoBehaviour:
   damage: 1
   explosionParticle: {fileID: 9017296118285484005}
   destroyTime: 0.15
+  offset: 1
 --- !u!65 &2833300430809133126
 BoxCollider:
   m_ObjectHideFlags: 0
