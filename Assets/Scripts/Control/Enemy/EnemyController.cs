@@ -8,12 +8,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField] protected int damage;
     [SerializeField] protected ParticleSystem explosionParticle;
     [SerializeField] protected float destroyTime;
+    [SerializeField] float offset;
     private float xRange;
     private float yRange;
     private float goalPos;
     protected Vector3 playerPos;
-    [SerializeField] float offset; 
-
+    protected bool gameOver; 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +63,9 @@ public class EnemyController : MonoBehaviour
         GameObject collisionGO = collision.gameObject;
         GameObject projectileInstigator = collisionGO.GetComponent<Projectile>()?.GetInstigator();
 
-        if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player"))
+        gameOver = GameObject.Find("GameManager").GetComponent<GameManager>().isGameOver;
+
+        if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player") && !gameOver)
         {
             FindObjectOfType<AudioManager>().Play("EnemyExplosion");
             explosionParticle.Play(); 
@@ -72,8 +75,6 @@ public class EnemyController : MonoBehaviour
             Destroy(collisionGO);
             StartCoroutine(Destroy());
         }
-
-
     }
 
     protected IEnumerator Destroy()

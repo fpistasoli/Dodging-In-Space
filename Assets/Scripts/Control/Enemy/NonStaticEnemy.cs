@@ -36,15 +36,14 @@ public class NonStaticEnemy : EnemyController
     protected override void CollisionHandler(Collision collision)
     {
         //Debug.Log("DISPARE A UN DYNAMIC ENEMY");
-  
-        if (collision.gameObject.CompareTag("Player"))
+        gameOver = GameObject.Find("GameManager").GetComponent<GameManager>().isGameOver;
+
+        if (collision.gameObject.CompareTag("Player") && !gameOver)
         {
             FindObjectOfType<AudioManager>().Play("PlayerCollision");
             explosionParticle.Play();
             StartCoroutine(Destroy());
-         
         }
-
     }
 
 
