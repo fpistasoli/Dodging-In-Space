@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
     private bool isGameEnd = false;
 
+    private GameObject player;
+
     //Events
     public static event System.Action onNewHighScore;
 
@@ -38,7 +40,8 @@ public class GameManager : MonoBehaviour
 
         float level = (int)difficulty + 1.5f; // para no dividir por 0 
         enemySpawnRate /= level;
-        this.score = 0; 
+        this.score = 0;
+        player = GameObject.FindWithTag("Player");
 
         StartGame();
     }
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
     private void onGoalHandler()
     {
         isGameEnd = true;
-        score += winningBonus;
+        score += player.GetComponent<PlayerController>().GetLives();
     }
 
     // Update is called once per frame

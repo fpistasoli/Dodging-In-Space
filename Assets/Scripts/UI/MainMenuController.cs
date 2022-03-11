@@ -19,6 +19,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] Image muteAudioImage;
     [SerializeField] Button creditsButton;
     [SerializeField] GameObject creditsPanel;
+    [SerializeField] Button controlsButton;
+    [SerializeField] GameObject controlsPanel;
 
     private TextMeshProUGUI inputNamePlaceholderText;
     private bool placeholderFlashing = true;
@@ -34,16 +36,31 @@ public class MainMenuController : MonoBehaviour
         ShowAudioIcon();
         StartCoroutine("ShowAndHidePlaceholder");
         HideCreditsPanel();
+        HideControlsPanel();
+    }
+
+    public void HideControlsPanel()
+    {
+        controlsPanel.gameObject.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
     }
 
     public void HideCreditsPanel()
     {
         creditsPanel.gameObject.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
     }
 
     public void ShowCreditsPanel()
     {
         creditsPanel.gameObject.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
+    }
+
+    public void ShowControlsPanel()
+    {
+        controlsPanel.gameObject.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("ButtonClic");
     }
 
     private IEnumerator ShowAndHidePlaceholder()

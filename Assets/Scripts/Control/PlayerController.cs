@@ -51,13 +51,7 @@ public class PlayerController : MonoBehaviour
         RotateWithMovement();
         RestrictMovement();
 
-        Debug.Log("IS MOVING VERT " + isMovingVertically);
-        Debug.Log("IS MOVING HORIZ " + isMovingHorizontally);
-
         UpdateTranslationVelocity();
-
-
-        //Debug.Log("TRANSLATION VELOCITY: " + previousTranslationVelocity);
     }
 
     private void UpdateTranslationVelocity()
@@ -81,7 +75,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator ShootProjectile()
     {
         FindObjectOfType<AudioManager>().Play("ShootProjectile"); 
-        GameObject projectileGO = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, Quaternion.identity); //CAMBIAR LA POSICION (spawnpoint)
+        GameObject projectileGO = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, Quaternion.identity); 
         projectileGO.GetComponent<Projectile>()?.SetInstigator(gameObject);
         yield return new WaitForSeconds(projectileSpawnCooldownTime);
         canShootProjectile = true;
