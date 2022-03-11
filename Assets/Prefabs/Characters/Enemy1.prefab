@@ -162,6 +162,7 @@ MonoBehaviour:
   damage: 2
   explosionParticle: {fileID: 8190372400139717273}
   destroyTime: 0.15
+  offset: 1
 --- !u!114 &5720190892086452363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,12 +175,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3810154f935d2f6478b8aa4ef2ef9dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visibilityDistance: 4
-  damage: 3
+  visibilityDistance: 5
+  damage: 2
   explosionParticle: {fileID: 8190372400139717273}
   destroyTime: 0.15
+  offset: 0
   chaseSpeed: 1
-  flySpeed: 3
+  flySpeed: 2
 --- !u!1001 &1594600994739892524
 PrefabInstance:
   m_ObjectHideFlags: 0

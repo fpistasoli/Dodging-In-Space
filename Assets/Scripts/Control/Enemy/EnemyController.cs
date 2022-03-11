@@ -8,11 +8,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField] protected int damage;
     [SerializeField] protected ParticleSystem explosionParticle;
     [SerializeField] protected float destroyTime;
+    [SerializeField] float offset;
     private float xRange;
     private float yRange;
     private float goalPos;
     protected Vector3 playerPos;
-
+    protected bool gameOver; 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +37,9 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 RandomPos()
     {
-        return new Vector3(Random.Range(-xRange - visibilityDistance, xRange + visibilityDistance), 
-            Random.Range(-yRange - visibilityDistance, yRange + visibilityDistance), 
-            Random.Range(playerPos.z + visibilityDistance, goalPos));
+        return new Vector3(Random.Range(-xRange + offset, xRange - offset), 
+            Random.Range(-yRange + offset, yRange - offset), 
+            Random.Range(playerPos.z + offset, goalPos));
     }
 
     public int GetDamage()
@@ -61,7 +63,9 @@ public class EnemyController : MonoBehaviour
         GameObject collisionGO = collision.gameObject;
         GameObject projectileInstigator = collisionGO.GetComponent<Projectile>()?.GetInstigator();
 
-        if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player"))
+        gameOver = GameObject.Find("GameManager").GetComponent<GameManager>().isGameOver;
+
+        if (collisionGO.CompareTag("Projectile") && projectileInstigator.CompareTag("Player") && !gameOver)
         {
             FindObjectOfType<AudioManager>().Play("EnemyExplosion");
             explosionParticle.Play(); 
@@ -70,11 +74,7 @@ public class EnemyController : MonoBehaviour
             Debug.Log("SUMO PUNTOS");
             Destroy(collisionGO);
             StartCoroutine(Destroy());
-            //Destroy(gameObject);
-            //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
-
-
     }
 
     protected IEnumerator Destroy()
