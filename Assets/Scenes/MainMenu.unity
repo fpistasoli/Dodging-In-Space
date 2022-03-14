@@ -649,15 +649,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1692292066}
+  m_Children: []
   m_Father: {fileID: 249058179}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: -34}
+  m_SizeDelta: {x: 802, y: 272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &249058175
 GameObject:
@@ -756,8 +755,9 @@ RectTransform:
   m_Children:
   - {fileID: 1853056434}
   - {fileID: 995184088}
-  - {fileID: 230338728}
+  - {fileID: 1692292066}
   - {fileID: 931889183}
+  - {fileID: 230338728}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -985,8 +985,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -184.9, y: -162}
-  m_SizeDelta: {x: 477.6159, y: 30}
+  m_AnchoredPosition: {x: -322.6, y: -145}
+  m_SizeDelta: {x: 709.7823, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &418871612
 MonoBehaviour:
@@ -1008,7 +1008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shizuniik - FRANCO PISTASOLI
+  m_text: Shizuniik (MARINA NIIKADO) - FRANCO PISTASOLI
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1775,7 +1775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -330.00003, y: -123}
+  m_AnchoredPosition: {x: -465.10004, y: -105.999985}
   m_SizeDelta: {x: 238.8106, y: 49.0447}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &693909541
@@ -2691,8 +2691,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -147.1, y: 14.000008}
-  m_SizeDelta: {x: 477.6159, y: 30}
+  m_AnchoredPosition: {x: -321.7, y: 31.00003}
+  m_SizeDelta: {x: 729.3345, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &933656720
 MonoBehaviour:
@@ -2715,7 +2715,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: MODELS CREATED WITH PROBUILDER - SPRITES AND TEXTURES EDITED IN GIMP -
-    ANDTECH
+    VORTEX ASSET BY ANDTECH
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -2826,7 +2826,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -330.00003, y: -66.000015}
+  m_AnchoredPosition: {x: -465.10004, y: -48.999996}
   m_SizeDelta: {x: 189.131, y: 19.771}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &936200853
@@ -3626,7 +3626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -330.00003, y: 14.000008}
+  m_AnchoredPosition: {x: -465.10004, y: 31.00003}
   m_SizeDelta: {x: 163.5443, y: 23.0908}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1216093607
@@ -3760,7 +3760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -127, y: -66}
+  m_AnchoredPosition: {x: -262.1, y: -48.99998}
   m_SizeDelta: {x: 242.5916, y: 19.7707}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1221490252
@@ -4150,7 +4150,7 @@ RectTransform:
   m_GameObject: {fileID: 1323236054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7065708, y: 0.7065708, z: 0.7065708}
   m_Children:
   - {fileID: 1801989347}
   - {fileID: 1759650821}
@@ -4169,8 +4169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -59, y: 14}
+  m_SizeDelta: {x: -37.666, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1364787844
 GameObject:
@@ -4544,7 +4544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -330.00003, y: -89.715}
+  m_AnchoredPosition: {x: -465.10004, y: -72.71498}
   m_SizeDelta: {x: 123.6208, y: 19.771}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1467828394
@@ -5286,7 +5286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -127, y: -87.743}
+  m_AnchoredPosition: {x: -262.9, y: -70.74298}
   m_SizeDelta: {x: 107.8878, y: 23.7152}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1635350426
@@ -5614,7 +5614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -133.1, y: -36.000008}
+  m_AnchoredPosition: {x: -268.2, y: -18.999989}
   m_SizeDelta: {x: 273.33, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1690508255
@@ -5785,17 +5785,17 @@ RectTransform:
   m_GameObject: {fileID: 1692292065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6828563, y: 0.6828563, z: 0.6828563}
+  m_LocalScale: {x: 0.76569945, y: 0.76569945, z: 0.76569945}
   m_Children:
   - {fileID: 1309061574}
   - {fileID: 1323236055}
-  m_Father: {fileID: 230338728}
-  m_RootOrder: 0
+  m_Father: {fileID: 249058179}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -56.48283}
-  m_SizeDelta: {x: 800, y: 331.4896}
+  m_AnchoredPosition: {x: 0, y: -34}
+  m_SizeDelta: {x: 802, y: 272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1692292067
 MonoBehaviour:
@@ -6003,7 +6003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -330.00003, y: -36.000008}
+  m_AnchoredPosition: {x: -465.10004, y: -18.999989}
   m_SizeDelta: {x: 256.9783, y: 24.3885}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1715988225
@@ -6301,8 +6301,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -184.9, y: 75.99998}
-  m_SizeDelta: {x: 477.6159, y: 30}
+  m_AnchoredPosition: {x: -258, y: 108}
+  m_SizeDelta: {x: 730.3043, y: 51.6252}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1759650822
 MonoBehaviour:
@@ -6324,7 +6324,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shizuniik - FRANCO PISTASOLI
+  m_text: Shizuniik (MARINA NIIKADO) - FRANCO PISTASOLI
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -6351,8 +6351,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6659,8 +6659,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -330.00003, y: 75.99998}
-  m_SizeDelta: {x: 160, y: 23.0908}
+  m_AnchoredPosition: {x: -468, y: 108}
+  m_SizeDelta: {x: 201.526, y: 30.7787}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1801989348
 MonoBehaviour:
@@ -6709,8 +6709,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6872,7 +6872,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 6}
+  m_AnchoredPosition: {x: 0, y: 6.000061}
   m_SizeDelta: {x: 963.2756, y: 103.1289}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1853056435
